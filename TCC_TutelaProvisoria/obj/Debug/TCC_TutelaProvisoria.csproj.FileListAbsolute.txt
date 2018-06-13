@@ -7,3 +7,12 @@ c:\users\mathe\documents\visual studio 2015\Projects\TutelaUrgencia_NPL\TCC_Tute
 c:\users\mathe\documents\visual studio 2015\Projects\TutelaUrgencia_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.Cache
 c:\users\mathe\documents\visual studio 2015\Projects\TutelaUrgencia_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 c:\users\mathe\documents\visual studio 2015\Projects\TutelaUrgencia_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojResolveAssemblyReference.cache
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.Cache
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb

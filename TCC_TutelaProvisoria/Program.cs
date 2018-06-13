@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace TCC_TutelaProvisoria
 {
@@ -17,6 +18,19 @@ namespace TCC_TutelaProvisoria
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            //CreateIconInWordDoc();
+        }
+
+        static void CreateIconInWordDoc()
+        {
+            var wordDocument = new Word.Application();
+
+            wordDocument.Visible = true;
+
+            wordDocument.Documents.Add();
+
+            wordDocument.Selection.PasteSpecial(Link: true, DisplayAsIcon: true);
         }
     }
 }
