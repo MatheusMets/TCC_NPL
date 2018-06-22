@@ -14,7 +14,9 @@ namespace TCC_TutelaProvisoria
     public partial class Form1 : Form
     {
 
-        Word.Application wordDoc;
+        public Word.Application wordDoc;
+        public Word.Document doc;
+        public StringBuilder data = new StringBuilder();
 
         public Form1()
         {
@@ -36,16 +38,24 @@ namespace TCC_TutelaProvisoria
 
                 wordDoc = new Word.Application();
                 //wordDoc.Visible = true;           //Abre o arquivo no pc quando der o Open
-                wordDoc.Documents.Open(filePath, ReadOnly: true);
+                doc = wordDoc.Documents.Open(filePath, ReadOnly: true);
 
-                wordDoc.Selection.Document.Content.Select();
+                //wordDoc.Selection.Document.Content.Select();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(wordDoc != null && TextoPesquisado.Text != String.Empty)
-                Util.SelectionFind(wordDoc, TextoPesquisado.Text);
+            if (wordDoc != null)
+            {
+                string s = Util.GetAllText(doc, data);
+                MessageBox.Show(s);
+                Console.WriteLine(s);
+            }
+
+
+            //if (wordDoc != null && TextoPesquisado.Text != String.Empty)
+            //    Util.SelectionFind(wordDoc, TextoPesquisado.Text);
         }
     }
 }

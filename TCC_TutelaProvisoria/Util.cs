@@ -30,5 +30,26 @@ namespace TCC_TutelaProvisoria
             }
         }
 
+        public static string GetAllText(Word.Document Doc, StringBuilder data)
+        {
+
+            String read = string.Empty;
+
+            for (int i = 0; i < Doc.Paragraphs.Count; i++)
+            {
+                string temp = Doc.Paragraphs[i + 1].Range.Text.Trim();
+                if (temp != string.Empty)
+                {
+                    data.Append(temp);
+                    data.Append(" ");
+                }
+            }
+
+            Doc.Close();
+            return data.ToString();
+            
+            //return Doc.Selection.Find.Text;
+        }
+
     }
 }
