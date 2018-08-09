@@ -38,8 +38,8 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TextoPesquisado = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pegarCaminhoDaPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +71,8 @@
             // 
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoToolStripMenuItem,
-            this.abrirToolStripMenuItem});
+            this.abrirToolStripMenuItem,
+            this.pegarCaminhoDaPastaToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
@@ -79,14 +80,14 @@
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir arquivo word";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
@@ -106,37 +107,35 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 202);
+            this.button1.Location = new System.Drawing.Point(169, 159);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(119, 50);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Pesquisar";
+            this.button1.Text = "Abrir o texto do arquivo word";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // richTextBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Digite um texto a ser pesquisado no seu arquivo .docx:";
+            this.richTextBox1.Location = new System.Drawing.Point(0, 215);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(799, 427);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
             // 
-            // TextoPesquisado
+            // pegarCaminhoDaPastaToolStripMenuItem
             // 
-            this.TextoPesquisado.Location = new System.Drawing.Point(47, 165);
-            this.TextoPesquisado.Name = "TextoPesquisado";
-            this.TextoPesquisado.Size = new System.Drawing.Size(360, 20);
-            this.TextoPesquisado.TabIndex = 6;
+            this.pegarCaminhoDaPastaToolStripMenuItem.Name = "pegarCaminhoDaPastaToolStripMenuItem";
+            this.pegarCaminhoDaPastaToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.pegarCaminhoDaPastaToolStripMenuItem.Text = "Pegar caminho da pasta";
+            this.pegarCaminhoDaPastaToolStripMenuItem.Click += new System.EventHandler(this.pegarCaminhoDaPastaToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 359);
-            this.Controls.Add(this.TextoPesquisado);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -162,8 +161,8 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TextoPesquisado;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem pegarCaminhoDaPastaToolStripMenuItem;
     }
 }
 

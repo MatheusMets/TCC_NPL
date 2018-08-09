@@ -16,3 +16,13 @@ C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.Cache
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.cache
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CoreCompileInputs.cache
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
