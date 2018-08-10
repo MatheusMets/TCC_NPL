@@ -31,32 +31,31 @@ namespace TCC_TutelaProvisoria
             }
         }
 
-        public static Word.Document GenerateDocument(string DocPath)
+        public static Word.Document GerarInstanciaDocumento(string DocPath)
         {
             Word.Application wordDoc = new Word.Application();
-            Word.Document doc = wordDoc.Documents.Open(DocPath, ReadOnly: true);
+            Word.Document doc = wordDoc.Documents.Open(DocPath, ReadOnly: true, Visible: false);
 
             return doc;
         }
 
-        public static string GetAllText(Word.Document Doc, StringBuilder data)
+        public static string RetornaOTextoDeUmArquivoDocx(Word.Document Doc, StringBuilder TextoDoArquivo)
         {
             try { 
-                string read = String.Empty;
-                data = new StringBuilder();
+                TextoDoArquivo = new StringBuilder();
 
                 for (int i = 0; i < Doc.Paragraphs.Count; i++)
                 {
                     string temp = Doc.Paragraphs[i + 1].Range.Text.Trim();
                     if (temp != string.Empty)
                     {
-                        data.Append(temp);
-                        data.Append(" ");
+                        TextoDoArquivo.Append(temp);
+                        TextoDoArquivo.Append(" ");
                     }
                 }
 
                 Doc.Close();
-                return data.ToString();
+                return TextoDoArquivo.ToString();
             }
 
             catch (Exception)
@@ -68,20 +67,87 @@ namespace TCC_TutelaProvisoria
             //return Doc.Selection.Find.Text;
         }
 
-        public static List<string> GetAllTextFromFilesInAFolder(string[] DocPaths)
+        public static string[] RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(string CaminhoDaPasta)
         {
-            List<string> TextFiles = new List<string>();
+            string[] DocPaths;
+
+            if (!String.IsNullOrEmpty(CaminhoDaPasta))          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
+            {
+                DocPaths = new string[Directory.GetFiles(CaminhoDaPasta).Length - 1];
+                DocPaths = Directory.GetFiles(CaminhoDaPasta);
+                return DocPaths;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static List<string> RetornaTodosOsTextosDeArquivosDocx(string[] DocPaths)
+        {
+            List<string> ListaDeTutelas = new List<string>();
             Word.Document doc;
             StringBuilder data = new StringBuilder();
 
             foreach (string text in DocPaths)
             {
-                doc = Util.GenerateDocument(text);
+                doc = Util.GerarInstanciaDocumento(text);
 
-                TextFiles.Add(GetAllText(doc, data));
+                ListaDeTutelas.Add(RetornaOTextoDeUmArquivoDocx(doc, data));
             }
 
-            return TextFiles;
+            return ListaDeTutelas;
+        }
+
+        public static List<string> RetornaBagOfWords(List<string> ListaDeTutelas)
+        {
+            List<string> TodasAsPalavrasDoBagOfWord = new List<string>();
+            List<string> PalavrasDeUmaTutela = new List<string>();
+            bool JaEstaNaBagOfWords = false;
+
+            foreach (string Tutela in ListaDeTutelas)           //Verifica todas as string que tem textos de tutelas
+            {
+                PalavrasDeUmaTutela.Clear();
+
+                PalavrasDeUmaTutela = Tutela.Split(' ').ToList();
+
+                foreach (string PalavraParaEntrarNoBagOfWords in PalavrasDeUmaTutela)       //Verifica todas as palavras dentro de uma tutela lida
+                {
+                    JaEstaNaBagOfWords = false;
+
+                    if (TodasAsPalavrasDoBagOfWord.Count == 0)
+                    {
+                        TodasAsPalavrasDoBagOfWord.Add(PalavraParaEntrarNoBagOfWords.ToLower());        //Todas as palavras devem ser adicionadas em LowerCase
+                    }
+                    else
+                    {
+                        foreach (string PalavraDoBagOfWords in TodasAsPalavrasDoBagOfWord)          //Verifica se palavra ja esta na bag of words
+                        {
+                            if (PalavraParaEntrarNoBagOfWords.ToLower().Equals(PalavraDoBagOfWords))
+                            {
+                                JaEstaNaBagOfWords = true;
+                                break;
+                            }   
+                        }
+
+                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords))                                //Se a palavra não está na bag of words, adiciona
+                        {
+                            RemovePontuacaoDaPalavra(PalavraParaEntrarNoBagOfWords);        //TO-DO
+                            TodasAsPalavrasDoBagOfWord.Add(PalavraParaEntrarNoBagOfWords.ToLower());
+                        }
+
+                    }
+
+                }
+            }
+
+
+            return TodasAsPalavrasDoBagOfWord;
+        }
+
+        public static void RemovePontuacaoDaPalavra(string palavra)
+        {
+            //TO-DO
         }
 
     }

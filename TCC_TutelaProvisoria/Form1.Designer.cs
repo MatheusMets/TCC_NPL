@@ -35,11 +35,10 @@
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pegarCaminhoDaPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.pegarCaminhoDaPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CriaBOW = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +89,13 @@
             this.abrirToolStripMenuItem.Text = "Abrir arquivo word";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
+            // pegarCaminhoDaPastaToolStripMenuItem
+            // 
+            this.pegarCaminhoDaPastaToolStripMenuItem.Name = "pegarCaminhoDaPastaToolStripMenuItem";
+            this.pegarCaminhoDaPastaToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.pegarCaminhoDaPastaToolStripMenuItem.Text = "Pegar caminho da pasta";
+            this.pegarCaminhoDaPastaToolStripMenuItem.Click += new System.EventHandler(this.pegarCaminhoDaPastaToolStripMenuItem_Click);
+            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
@@ -105,41 +111,26 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "oi? ";
             // 
-            // button1
+            // CriaBOW
             // 
-            this.button1.Location = new System.Drawing.Point(169, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Abrir o texto do arquivo word";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(0, 215);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(799, 427);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
-            // 
-            // pegarCaminhoDaPastaToolStripMenuItem
-            // 
-            this.pegarCaminhoDaPastaToolStripMenuItem.Name = "pegarCaminhoDaPastaToolStripMenuItem";
-            this.pegarCaminhoDaPastaToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.pegarCaminhoDaPastaToolStripMenuItem.Text = "Pegar caminho da pasta";
-            this.pegarCaminhoDaPastaToolStripMenuItem.Click += new System.EventHandler(this.pegarCaminhoDaPastaToolStripMenuItem_Click);
+            this.CriaBOW.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CriaBOW.Location = new System.Drawing.Point(180, 193);
+            this.CriaBOW.Name = "CriaBOW";
+            this.CriaBOW.Size = new System.Drawing.Size(125, 56);
+            this.CriaBOW.TabIndex = 4;
+            this.CriaBOW.Text = "Cria a Bag of words";
+            this.CriaBOW.UseVisualStyleBackColor = true;
+            this.CriaBOW.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 359);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.CriaBOW);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -160,9 +151,8 @@
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem pegarCaminhoDaPastaToolStripMenuItem;
+        private System.Windows.Forms.Button CriaBOW;
     }
 }
 

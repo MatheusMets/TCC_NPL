@@ -82,10 +82,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Testes BagOfWords\Test1.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Testes BagOfWords\Test2.docx" />
+    <None Include="Testes BagOfWords\Test3.docx" />
+    <None Include="Testes BagOfWords\Test4.docx" />
+    <None Include="Testes BagOfWords\Test5.docx" />
+    <None Include="Testes BagOfWords\Test6.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

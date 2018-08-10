@@ -17,10 +17,11 @@ namespace TCC_TutelaProvisoria
         //public Word.Application wordDoc;
         public Word.Document doc;
         public StringBuilder data = new StringBuilder();
-        string FolderPath;
-        string DocPath;
-        string[] DocPaths;
-        List<string> FilesFromFolder;
+        string CaminhoDaPasta;
+        string CaminhoDoDocumento;
+        string[] CaminhosDosDocumentos;
+        List<string> ListaDeDocumentos;
+        List<string> BagOfWords;
 
         public Form1()
         {
@@ -38,52 +39,36 @@ namespace TCC_TutelaProvisoria
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                DocPath = openFileDialog1.FileName;
+                CaminhoDoDocumento = openFileDialog1.FileName;
 
                 //wordDoc = new Word.Application();
                 //wordDoc.Visible = true;           //Abre o arquivo no pc quando der o Open
-                doc = Util.GenerateDocument(DocPath);
-
-                //wordDoc.Selection.Document.Content.Select();
+                doc = Util.GerarInstanciaDocumento(CaminhoDoDocumento);
+                
             }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
             if (doc != null)
             {
-                string s = Util.GetAllText(doc, data);
-                Console.WriteLine(s);
-                MessageBox.Show(s);
-
-                //richTextBox1 = new RichTextBox();
-
-                ////richTextBox1.Dock = DockStyle.Fill;
-                //richTextBox1.AppendText(s);
-                //richTextBox1.Show();
+                string Tutela = Util.RetornaOTextoDeUmArquivoDocx(doc, data);
+                Console.WriteLine(Tutela);
+                MessageBox.Show(Tutela);
             }
-
-
-            //if (wordDoc != null && TextoPesquisado.Text != String.Empty)
-            //    Util.SelectionFind(wordDoc, TextoPesquisado.Text);
         }
 
         private void pegarCaminhoDaPastaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FilesFromFolder = new List<string>();
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            folderDialog.Description = "To get a folder path: "; 
+            ListaDeDocumentos = new List<string>();
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog
+            {
+                Description = "To get a folder path: "
+            };
 
             if (folderDialog.ShowDialog() == DialogResult.OK)
-                FolderPath = folderDialog.SelectedPath;
+                CaminhoDaPasta = folderDialog.SelectedPath;
 
-            MessageBox.Show("Caminho da pasta: " + FolderPath);
+            MessageBox.Show("Caminho da pasta: " + CaminhoDaPasta);
 
-            if (!String.IsNullOrEmpty(FolderPath))          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
-            {
-                DocPaths = new string[Directory.GetFiles(FolderPath).Length - 1];
-                DocPaths = Directory.GetFiles(FolderPath);
-            }
+            CaminhosDosDocumentos = Util.RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(CaminhoDaPasta);
 
             ////Testando se ta pegando o caminho certo dos arquivos (ESTÁ!)
             //foreach (string path in DocPaths)
@@ -91,13 +76,27 @@ namespace TCC_TutelaProvisoria
             //    MessageBox.Show(path);
             //}
 
-            if(DocPaths != null)
-                FilesFromFolder = Util.GetAllTextFromFilesInAFolder(DocPaths);
+            if(CaminhosDosDocumentos != null)
+                ListaDeDocumentos = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
-            foreach (string path in FilesFromFolder)
+            foreach (string path in ListaDeDocumentos)
             {
                 MessageBox.Show(path);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BagOfWords = new List<string>();
+            BagOfWords = Util.RetornaBagOfWords(ListaDeDocumentos);
+
+            MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
+
+            foreach (string palavra in BagOfWords)
+            {
+                MessageBox.Show(palavra);
+            }
+
         }
     }
 }
