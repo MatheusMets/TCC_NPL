@@ -19,9 +19,9 @@ namespace TCC_TutelaProvisoria
             object missing = null;
 
             if (Doc.Selection.Find.Execute(ref findText,
-                ref missing, ref missing, ref missing, ref missing, ref missing, 
-                ref missing, ref missing, ref missing, ref missing, ref missing, 
-                ref missing, ref missing,ref missing, ref missing))
+                ref missing, ref missing, ref missing, ref missing, ref missing,
+                ref missing, ref missing, ref missing, ref missing, ref missing,
+                ref missing, ref missing, ref missing, ref missing))
             {
                 MessageBox.Show("Texto encontrado!");
             }
@@ -31,17 +31,41 @@ namespace TCC_TutelaProvisoria
             }
         }
 
-        public static Word.Document GerarInstanciaDocumento(string DocPath)
+        public static bool IsArquivoWord(string CaminhoDoDocumento)
         {
-            Word.Application wordDoc = new Word.Application();
-            Word.Document doc = wordDoc.Documents.Open(DocPath, ReadOnly: true, Visible: false);
+            if (CaminhoDoDocumento.EndsWith(".docx") ||
+                CaminhoDoDocumento.EndsWith(".doc") ||
+                CaminhoDoDocumento.EndsWith(".dot") ||
+                CaminhoDoDocumento.EndsWith(".dotx") ||
+                CaminhoDoDocumento.EndsWith(".dotm"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-            return doc;
+        }
+
+        public static Word.Document GerarInstanciaDocumento(string CaminhoDoDocumento)
+        {
+            if (IsArquivoWord(CaminhoDoDocumento))
+            {
+                Word.Application wordDoc = new Word.Application();
+                Word.Document doc = wordDoc.Documents.Open(CaminhoDoDocumento, ReadOnly: true, Visible: false);
+
+                return doc;
+            }
+
+            return null;
+
         }
 
         public static string RetornaOTextoDeUmArquivoDocx(Word.Document Doc, StringBuilder TextoDoArquivo)
         {
-            try { 
+            try
+            {
                 TextoDoArquivo = new StringBuilder();
 
                 for (int i = 0; i < Doc.Paragraphs.Count; i++)
@@ -63,7 +87,7 @@ namespace TCC_TutelaProvisoria
                 MessageBox.Show("Primeiro carregue uma arquivo word para poder le-lo");
                 return null;
             }
-            
+
             //return Doc.Selection.Find.Text;
         }
 
@@ -83,57 +107,78 @@ namespace TCC_TutelaProvisoria
             }
         }
 
-        public static List<string> RetornaTodosOsTextosDeArquivosDocx(string[] DocPaths)
+        public static List<Tutela> RetornaTodosOsTextosDeArquivosDocx(string[] CaminhosDosDocumentos)
         {
-            List<string> ListaDeTutelas = new List<string>();
+            Tutela tutela = new Tutela();
+            List<Tutela> ListaDeTutelas = new List<Tutela>();
+
+            foreach (string caminho in CaminhosDosDocumentos)
+            {
+                if (Util.IsArquivoWord(caminho))
+                {
+                    tutela = new Tutela
+                    {
+                        Caminho = caminho,
+                        Nome = Path.GetFileName(caminho)
+                    };
+
+                    ListaDeTutelas.Add(tutela);
+
+                    MessageBox.Show(caminho);
+                }
+            }
+
             Word.Document doc;
             StringBuilder data = new StringBuilder();
 
-            foreach (string text in DocPaths)
+            foreach (Tutela T in ListaDeTutelas)
             {
-                doc = Util.GerarInstanciaDocumento(text);
+                doc = Util.GerarInstanciaDocumento(T.Caminho);
 
-                ListaDeTutelas.Add(RetornaOTextoDeUmArquivoDocx(doc, data));
+                if (doc != null)
+                    T.Texto = RetornaOTextoDeUmArquivoDocx(doc, data);
             }
 
             return ListaDeTutelas;
         }
 
-        public static List<string> RetornaBagOfWords(List<string> ListaDeTutelas)
+        public static List<string> RetornaBagOfWords(List<Tutela> ListaDeTutelas)
         {
-            List<string> TodasAsPalavrasDoBagOfWord = new List<string>();
+
+            List<string> TodasAsPalavrasDoBagOfWords = new List<string>();
             List<string> PalavrasDeUmaTutela = new List<string>();
+            string PalavraParaEntrarNoBagOfWords;
             bool JaEstaNaBagOfWords = false;
 
-            foreach (string Tutela in ListaDeTutelas)           //Verifica todas as string que tem textos de tutelas
+            foreach (Tutela tutela in ListaDeTutelas)                                                       //Verifica todas as string que tem textos de tutelas
             {
                 PalavrasDeUmaTutela.Clear();
 
-                PalavrasDeUmaTutela = Tutela.Split(' ').ToList();
+                PalavrasDeUmaTutela = tutela.Texto.Split(' ').ToList();
 
-                foreach (string PalavraParaEntrarNoBagOfWords in PalavrasDeUmaTutela)       //Verifica todas as palavras dentro de uma tutela lida
+                foreach (string PalavraParaEntrarNoBagOfWordsBase in PalavrasDeUmaTutela)                   //Verifica todas as palavras dentro de uma tutela lida
                 {
                     JaEstaNaBagOfWords = false;
+                    PalavraParaEntrarNoBagOfWords = RemovePontuacaoDaPalavra(PalavraParaEntrarNoBagOfWordsBase);        //Retirando a pontuacao das palavras
 
-                    if (TodasAsPalavrasDoBagOfWord.Count == 0)
+                    if (TodasAsPalavrasDoBagOfWords.Count == 0)
                     {
-                        TodasAsPalavrasDoBagOfWord.Add(PalavraParaEntrarNoBagOfWords.ToLower());        //Todas as palavras devem ser adicionadas em LowerCase
+                        TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToLower());            //Todas as palavras devem ser adicionadas em LowerCase
                     }
                     else
                     {
-                        foreach (string PalavraDoBagOfWords in TodasAsPalavrasDoBagOfWord)          //Verifica se palavra ja esta na bag of words
+                        foreach (string PalavraDoBagOfWords in TodasAsPalavrasDoBagOfWords)                  //Verifica se palavra ja esta na bag of words
                         {
                             if (PalavraParaEntrarNoBagOfWords.ToLower().Equals(PalavraDoBagOfWords))
                             {
                                 JaEstaNaBagOfWords = true;
                                 break;
-                            }   
+                            }
                         }
 
-                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords))                                //Se a palavra não está na bag of words, adiciona
+                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords))    //Se a palavra não está na bag of words, adiciona
                         {
-                            RemovePontuacaoDaPalavra(PalavraParaEntrarNoBagOfWords);        //TO-DO
-                            TodasAsPalavrasDoBagOfWord.Add(PalavraParaEntrarNoBagOfWords.ToLower());
+                            TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToLower());
                         }
 
                     }
@@ -141,14 +186,57 @@ namespace TCC_TutelaProvisoria
                 }
             }
 
-
-            return TodasAsPalavrasDoBagOfWord;
+            return TodasAsPalavrasDoBagOfWords;
         }
 
-        public static void RemovePontuacaoDaPalavra(string palavra)
+        public static void QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
         {
-            //TO-DO
+            List<string> PalavrasDeUmaTutela = new List<string>();
+            int Count;
+            string NomeTutelaAtual = String.Empty;
+
+            foreach (string PalavraBagOfWords in BagOfWords)
+            {
+                Count = 0;
+
+
+                foreach(Tutela tutela in ListaDeTutelas)
+                {
+                    PalavrasDeUmaTutela = tutela.Texto.Split(' ').ToList();
+                    
+                    PalavrasDeUmaTutela = PalavrasDeUmaTutela.ConvertAll(d => d.ToLower());
+                    
+                    foreach(string palavra in PalavrasDeUmaTutela)
+                    {
+                        RemovePontuacaoDaPalavra(palavra);
+                    }
+
+                    NomeTutelaAtual = tutela.Nome;
+
+                    Console.WriteLine("Palavra " + PalavraBagOfWords + " foi encontrada " + Count + " vezes na tutela " + NomeTutelaAtual + "\n");
+                }
+            }
+
         }
+
+        public static string RemovePontuacaoDaPalavra(string palavra)
+        {
+            var NovaPalavra = new StringBuilder();
+
+            foreach (char c in palavra)
+            {
+                if (!char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsWhiteSpace(c))
+                    NovaPalavra.Append(c);
+            }
+
+            return NovaPalavra.ToString();
+        }
+
+        //public static Dictionary<string, int> Retorna()
+        //{
+        //    Dictionary<string, int> 
+
+        //}
 
     }
 }

@@ -23,6 +23,9 @@ namespace TCC_TutelaProvisoria
         List<string> ListaDeDocumentos;
         List<string> BagOfWords;
 
+        Tutela tutela = new Tutela();
+        List<Tutela> ListaDeTutelas;
+
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +61,8 @@ namespace TCC_TutelaProvisoria
         private void pegarCaminhoDaPastaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListaDeDocumentos = new List<string>();
+            ListaDeTutelas = new List<Tutela>();
+
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
             {
                 Description = "To get a folder path: "
@@ -70,42 +75,48 @@ namespace TCC_TutelaProvisoria
 
             CaminhosDosDocumentos = Util.RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(CaminhoDaPasta);
 
-            ////Testando se ta pegando o caminho certo dos arquivos (ESTÁ!)
-            //foreach (string path in DocPaths)
-            //{
-            //    MessageBox.Show(path);
-            //}
+            if (CaminhosDosDocumentos != null)
+                ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
-            if(CaminhosDosDocumentos != null)
-                ListaDeDocumentos = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
-            foreach (string path in ListaDeDocumentos)
+            //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
+            foreach (Tutela tutela in ListaDeTutelas)
             {
-                MessageBox.Show(path);
+                MessageBox.Show(tutela.Texto);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
-
-            BagOfWords = new List<string>();
-            BagOfWords = Util.RetornaBagOfWords(ListaDeDocumentos);
-
-            MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
-
-            richTextBox1.Show();
-
-            foreach (string palavra in BagOfWords)
+            if (ListaDeTutelas != null)
             {
-                richTextBox1.AppendText(palavra + "\n");
-                //MessageBox.Show(palavra);
-            }
+                richTextBox1.Clear();
 
+                BagOfWords = new List<string>();
+                BagOfWords = Util.RetornaBagOfWords(ListaDeTutelas);
+
+                MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
+
+                richTextBox1.Show();
+
+                foreach (string palavra in BagOfWords)
+                {
+                    richTextBox1.AppendText(palavra + "\n");
+                }
+            }
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Util.QuantidadePalavrasPorTutela(ListaDeTutelas, BagOfWords);
+
+            richTextBox1.Clear();
+            
 
         }
     }

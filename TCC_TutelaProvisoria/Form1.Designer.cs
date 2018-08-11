@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CriaBOW = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,9 +116,9 @@
             // CriaBOW
             // 
             this.CriaBOW.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriaBOW.Location = new System.Drawing.Point(467, 71);
+            this.CriaBOW.Location = new System.Drawing.Point(248, 70);
             this.CriaBOW.Name = "CriaBOW";
-            this.CriaBOW.Size = new System.Drawing.Size(125, 56);
+            this.CriaBOW.Size = new System.Drawing.Size(182, 56);
             this.CriaBOW.TabIndex = 4;
             this.CriaBOW.Text = "Cria a Bag of words";
             this.CriaBOW.UseVisualStyleBackColor = true;
@@ -125,18 +126,30 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 144);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 144);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(989, 561);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(593, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 56);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Analisa quant. de palavras em cada tutela";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 717);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -165,6 +178,7 @@
         private System.Windows.Forms.ToolStripMenuItem pegarCaminhoDaPastaToolStripMenuItem;
         private System.Windows.Forms.Button CriaBOW;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
