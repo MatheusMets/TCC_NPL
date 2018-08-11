@@ -87,15 +87,25 @@ namespace TCC_TutelaProvisoria
 
         private void button1_Click(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
+
             BagOfWords = new List<string>();
             BagOfWords = Util.RetornaBagOfWords(ListaDeDocumentos);
 
             MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
 
+            richTextBox1.Show();
+
             foreach (string palavra in BagOfWords)
             {
-                MessageBox.Show(palavra);
+                richTextBox1.AppendText(palavra + "\n");
+                //MessageBox.Show(palavra);
             }
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
