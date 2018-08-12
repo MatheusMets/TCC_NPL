@@ -53,7 +53,6 @@ namespace TCC_TutelaProvisoria
             if (doc != null)
             {
                 string Tutela = Util.RetornaOTextoDeUmArquivoDocx(doc, data);
-                Console.WriteLine(Tutela);
                 MessageBox.Show(Tutela);
             }
         }
@@ -71,7 +70,7 @@ namespace TCC_TutelaProvisoria
             if (folderDialog.ShowDialog() == DialogResult.OK)
                 CaminhoDaPasta = folderDialog.SelectedPath;
 
-            MessageBox.Show("Caminho da pasta: " + CaminhoDaPasta);
+            //MessageBox.Show("Caminho da pasta: " + CaminhoDaPasta);
 
             CaminhosDosDocumentos = Util.RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(CaminhoDaPasta);
 
@@ -79,11 +78,11 @@ namespace TCC_TutelaProvisoria
                 ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
 
-            //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
-            foreach (Tutela tutela in ListaDeTutelas)
-            {
-                MessageBox.Show(tutela.Texto);
-            }
+            ////PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
+            //foreach (Tutela tutela in ListaDeTutelas)
+            //{
+            //    MessageBox.Show(tutela.Texto);
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -113,11 +112,13 @@ namespace TCC_TutelaProvisoria
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Util.QuantidadePalavrasPorTutela(ListaDeTutelas, BagOfWords);
+            if (ListaDeTutelas != null && BagOfWords != null)
+            {
+                string relatorio = Util.QuantidadePalavrasPorTutela(ListaDeTutelas, BagOfWords);
 
-            richTextBox1.Clear();
-            
-
+                richTextBox1.Clear();
+                richTextBox1.AppendText(relatorio);
+            }
         }
     }
 }

@@ -124,7 +124,7 @@ namespace TCC_TutelaProvisoria
 
                     ListaDeTutelas.Add(tutela);
 
-                    MessageBox.Show(caminho);
+                    //MessageBox.Show(caminho);
                 }
             }
 
@@ -189,33 +189,69 @@ namespace TCC_TutelaProvisoria
             return TodasAsPalavrasDoBagOfWords;
         }
 
-        public static void QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
+        public static List<string> RemovePontuacaoDeUmaListaDeString(List<string> PalavrasDeUmaTutela)
         {
+            List<string> PalavrasDeUmaTutelaTemp = new List<string>();
+
+            foreach (string PalavraTemp in PalavrasDeUmaTutela)
+            {
+                var NovaPalavra = new StringBuilder();
+
+                foreach (char c in PalavraTemp)
+                {
+                    if (!char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsWhiteSpace(c))
+                        NovaPalavra.Append(c);
+                }
+
+                if (!String.IsNullOrWhiteSpace(NovaPalavra.ToString()))
+                {
+                    PalavrasDeUmaTutelaTemp.Add(NovaPalavra.ToString());
+                }
+                
+            }
+
+            return PalavrasDeUmaTutelaTemp;
+        }
+
+        public static string QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
+        {
+            List<string> PalavrasDeUmaTutelaTemp = new List<string>();
             List<string> PalavrasDeUmaTutela = new List<string>();
+            StringBuilder Relatorio = new StringBuilder();
             int Count;
             string NomeTutelaAtual = String.Empty;
 
+            Relatorio.Append("RELATORIO: QUANTIDADE DE PALAVRAS QUE SE REPETEM POR TUTELA \n\n\n");
+
             foreach (string PalavraBagOfWords in BagOfWords)
             {
-                Count = 0;
+                Relatorio.Append("/******  PALAVRA SENDO ANALISADA: \"" + PalavraBagOfWords + "\"  ******/ \n");
 
-
-                foreach(Tutela tutela in ListaDeTutelas)
+                foreach (Tutela tutela in ListaDeTutelas)
                 {
-                    PalavrasDeUmaTutela = tutela.Texto.Split(' ').ToList();
-                    
-                    PalavrasDeUmaTutela = PalavrasDeUmaTutela.ConvertAll(d => d.ToLower());
-                    
-                    foreach(string palavra in PalavrasDeUmaTutela)
+                    Count = 0;
+
+                    PalavrasDeUmaTutelaTemp = tutela.Texto.Split(' ').ToList();
+                    PalavrasDeUmaTutelaTemp = PalavrasDeUmaTutelaTemp.ConvertAll(d => d.ToLower());
+                    PalavrasDeUmaTutela = RemovePontuacaoDeUmaListaDeString(PalavrasDeUmaTutelaTemp);
+
+                    foreach (string palavra in PalavrasDeUmaTutela)
                     {
-                        RemovePontuacaoDaPalavra(palavra);
+                        if (palavra.Equals(PalavraBagOfWords))
+                            Count++;
                     }
 
                     NomeTutelaAtual = tutela.Nome;
 
-                    Console.WriteLine("Palavra " + PalavraBagOfWords + " foi encontrada " + Count + " vezes na tutela " + NomeTutelaAtual + "\n");
+                    //Console.WriteLine("Palavra " + PalavraBagOfWords + " foi encontrada " + Count + " vezes na tutela " + NomeTutelaAtual);
+                    Relatorio.Append("Palavra \"" + PalavraBagOfWords + "\" foi encontrada " + Count + " vezes na tutela \"" + NomeTutelaAtual + "\"\n");
                 }
+
+                Relatorio.Append("\n\n");
+                //Console.WriteLine("\n\n");
             }
+
+            return Relatorio.ToString();
 
         }
 
@@ -228,7 +264,7 @@ namespace TCC_TutelaProvisoria
                 if (!char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsWhiteSpace(c))
                     NovaPalavra.Append(c);
             }
-
+            
             return NovaPalavra.ToString();
         }
 
