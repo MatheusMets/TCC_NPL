@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
+using System.Data.SqlClient;
 
 namespace TCC_TutelaProvisoria
 {
@@ -29,6 +30,12 @@ namespace TCC_TutelaProvisoria
             {
                 MessageBox.Show("Texto não localizado");
             }
+        }
+
+        public static SqlConnection RetornaConexao(string StrConnection)
+        {
+            SqlConnection Con1 = new SqlConnection(StrConnection);
+            return Con1;
         }
 
         public static bool IsArquivoWord(string CaminhoDoDocumento)

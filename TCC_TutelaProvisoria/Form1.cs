@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace TCC_TutelaProvisoria
 {
@@ -22,6 +23,7 @@ namespace TCC_TutelaProvisoria
         string[] CaminhosDosDocumentos;
         List<string> ListaDeDocumentos;
         List<string> BagOfWords;
+
 
         Tutela tutela = new Tutela();
         List<Tutela> ListaDeTutelas;
