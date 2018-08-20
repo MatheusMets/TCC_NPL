@@ -80,7 +80,7 @@ namespace TCC_TutelaProvisoria
                 ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
 
-            ////PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
+            //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
             //foreach (Tutela tutela in ListaDeTutelas)
             //{
             //    MessageBox.Show(tutela.Texto);
@@ -121,6 +121,21 @@ namespace TCC_TutelaProvisoria
                 richTextBox1.Clear();
                 richTextBox1.AppendText(relatorio);
             }
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

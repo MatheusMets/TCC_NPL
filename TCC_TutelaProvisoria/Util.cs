@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace TCC_TutelaProvisoria
 {
@@ -170,13 +171,13 @@ namespace TCC_TutelaProvisoria
 
                     if (TodasAsPalavrasDoBagOfWords.Count == 0)
                     {
-                        TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToLower());            //Todas as palavras devem ser adicionadas em LowerCase
+                        TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToUpper());            //Todas as palavras devem ser adicionadas em LowerCase
                     }
                     else
                     {
                         foreach (string PalavraDoBagOfWords in TodasAsPalavrasDoBagOfWords)                  //Verifica se palavra ja esta na bag of words
                         {
-                            if (PalavraParaEntrarNoBagOfWords.ToLower().Equals(PalavraDoBagOfWords))
+                            if (PalavraParaEntrarNoBagOfWords.ToUpper().Equals(PalavraDoBagOfWords))
                             {
                                 JaEstaNaBagOfWords = true;
                                 break;
@@ -185,7 +186,7 @@ namespace TCC_TutelaProvisoria
 
                         if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords))    //Se a palavra não está na bag of words, adiciona
                         {
-                            TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToLower());
+                            TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToUpper());
                         }
 
                     }
@@ -202,13 +203,7 @@ namespace TCC_TutelaProvisoria
 
             foreach (string PalavraTemp in PalavrasDeUmaTutela)
             {
-                var NovaPalavra = new StringBuilder();
-
-                foreach (char c in PalavraTemp)
-                {
-                    if (!char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsWhiteSpace(c))
-                        NovaPalavra.Append(c);
-                }
+                var NovaPalavra = RemovePontuacaoDaPalavra(PalavraTemp);
 
                 if (!String.IsNullOrWhiteSpace(NovaPalavra.ToString()))
                 {
@@ -239,7 +234,7 @@ namespace TCC_TutelaProvisoria
                     Count = 0;
 
                     PalavrasDeUmaTutelaTemp = tutela.Texto.Split(' ').ToList();
-                    PalavrasDeUmaTutelaTemp = PalavrasDeUmaTutelaTemp.ConvertAll(d => d.ToLower());
+                    PalavrasDeUmaTutelaTemp = PalavrasDeUmaTutelaTemp.ConvertAll(d => d.ToUpper());
                     PalavrasDeUmaTutela = RemovePontuacaoDeUmaListaDeString(PalavrasDeUmaTutelaTemp);
 
                     foreach (string palavra in PalavrasDeUmaTutela)
@@ -250,12 +245,10 @@ namespace TCC_TutelaProvisoria
 
                     NomeTutelaAtual = tutela.Nome;
 
-                    //Console.WriteLine("Palavra " + PalavraBagOfWords + " foi encontrada " + Count + " vezes na tutela " + NomeTutelaAtual);
                     Relatorio.Append("Palavra \"" + PalavraBagOfWords + "\" foi encontrada " + Count + " vezes na tutela \"" + NomeTutelaAtual + "\"\n");
                 }
 
                 Relatorio.Append("\n\n");
-                //Console.WriteLine("\n\n");
             }
 
             return Relatorio.ToString();
@@ -271,9 +264,26 @@ namespace TCC_TutelaProvisoria
                 if (!char.IsPunctuation(c) && !char.IsSymbol(c) && !char.IsWhiteSpace(c))
                     NovaPalavra.Append(c);
             }
-            
+
             return NovaPalavra.ToString();
         }
+
+        public static string RemoveAcentuacao(string palavra)
+        {
+            var normalizedString = palavra.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                    stringBuilder.Append(c);
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
 
         //public static Dictionary<string, int> Retorna()
         //{
