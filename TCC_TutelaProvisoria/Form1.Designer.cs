@@ -192,6 +192,7 @@
             this.CheckedListTutelasLidas.Size = new System.Drawing.Size(851, 544);
             this.CheckedListTutelasLidas.TabIndex = 11;
             this.CheckedListTutelasLidas.Visible = false;
+            this.CheckedListTutelasLidas.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListTutelasLidas_ItemCheck);
             this.CheckedListTutelasLidas.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button4

@@ -204,29 +204,34 @@ namespace TCC_TutelaProvisoria
             CheckedItemCollection ItemsMarcados;
             ItemsMarcados = CheckedListTutelasLidas.CheckedItems;
 
-            foreach (var item in ItemsMarcados)
-            {
-                NomesDasTutelasQueSeraoAnalisadas.Add(item.ToString());
-            }
+            if (ItemsMarcados.Count > 2)
+                MessageBox.Show("Deve selecionar apenas 2 tutelas");
 
-            foreach(Tutela tutela in G_ListaDeTutelas)
+            else
             {
+                foreach (var item in ItemsMarcados)
+                {
+                    NomesDasTutelasQueSeraoAnalisadas.Add(item.ToString());
+                }
 
-                foreach (string NomeTutela in NomesDasTutelasQueSeraoAnalisadas)
+                foreach (Tutela tutela in G_ListaDeTutelas)
                 {
 
-                    if (tutela.Nome.Equals(NomeTutela))
+                    foreach (string NomeTutela in NomesDasTutelasQueSeraoAnalisadas)
                     {
-                        TutelasQueSeraoAnalisadas.Add(tutela);
-                        break;                                      //Vai sempre pegar o primeiro nome que achar. Esse é o problema de ter tutelas com nomes repetidos. Tinha que tratar com Identificador
+
+                        if (tutela.Nome.Equals(NomeTutela))
+                        {
+                            TutelasQueSeraoAnalisadas.Add(tutela);
+                            break;                                      //Vai sempre pegar o primeiro nome que achar. Esse é o problema de ter tutelas com nomes repetidos. Tinha que tratar com Identificador
+                        }
                     }
                 }
+
+                float Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas.ElementAt(0), TutelasQueSeraoAnalisadas.ElementAt(1));
+
+                MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente " + Similaridade * 100 + "%");
             }
-
-            float Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas);
-
-            MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente " + Similaridade*100 + "%");
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -236,6 +241,12 @@ namespace TCC_TutelaProvisoria
             G_ListaDeTutelas.Clear();
 
             MessageBox.Show("Tutelas excluidas com sucesso! \n" + QuantTutelas + " tutelas foram excluidas");
+        }
+
+        private void CheckedListTutelasLidas_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked && CheckedListTutelasLidas.CheckedItems.Count >= 2)
+                e.NewValue = CheckState.Unchecked;
         }
     }
 }

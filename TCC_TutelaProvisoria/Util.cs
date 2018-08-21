@@ -251,11 +251,11 @@ namespace TCC_TutelaProvisoria
 
         }
 
-        public static float RealizaSimilaridade(List<Tutela> ListaDeTutelas)
+        public static float RealizaSimilaridade(Tutela tutela1, Tutela tutela2)
         {
             float Similaridade = 0;
 
-            //TO-DO (Similaridade)
+            
 
             return Similaridade;
         }
