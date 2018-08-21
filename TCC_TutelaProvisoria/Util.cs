@@ -14,6 +14,31 @@ namespace TCC_TutelaProvisoria
     public static class Util
     {
 
+        public static SqlConnection RetornaConexao(string StrConnection)
+        {
+            SqlConnection Con1 = new SqlConnection(StrConnection);
+            return Con1;
+        }
+
+        public static string[] RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(string CaminhoDaPasta)
+        {
+            string[] DocPaths;
+
+            if (!String.IsNullOrEmpty(CaminhoDaPasta))          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
+            {
+                DocPaths = new string[Directory.GetFiles(CaminhoDaPasta).Length - 1];
+                DocPaths = Directory.GetFiles(CaminhoDaPasta);
+                return DocPaths;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        #region [Manipulacao arquivo word]
+
         public static void SelectionFind(Word.Application Doc, object findText)
         {
             Doc.Selection.Find.ClearFormatting();
@@ -31,12 +56,6 @@ namespace TCC_TutelaProvisoria
             {
                 MessageBox.Show("Texto não localizado");
             }
-        }
-
-        public static SqlConnection RetornaConexao(string StrConnection)
-        {
-            SqlConnection Con1 = new SqlConnection(StrConnection);
-            return Con1;
         }
 
         public static bool IsArquivoWord(string CaminhoDoDocumento)
@@ -99,22 +118,6 @@ namespace TCC_TutelaProvisoria
             //return Doc.Selection.Find.Text;
         }
 
-        public static string[] RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(string CaminhoDaPasta)
-        {
-            string[] DocPaths;
-
-            if (!String.IsNullOrEmpty(CaminhoDaPasta))          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
-            {
-                DocPaths = new string[Directory.GetFiles(CaminhoDaPasta).Length - 1];
-                DocPaths = Directory.GetFiles(CaminhoDaPasta);
-                return DocPaths;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public static List<Tutela> RetornaTodosOsTextosDeArquivosDocx(string[] CaminhosDosDocumentos)
         {
             Tutela tutela = new Tutela();
@@ -150,6 +153,11 @@ namespace TCC_TutelaProvisoria
             return ListaDeTutelas;
         }
 
+        #endregion
+
+
+        #region [Bag of words + Similaridade]
+
         public static List<string> RetornaBagOfWords(List<Tutela> ListaDeTutelas)
         {
 
@@ -175,18 +183,23 @@ namespace TCC_TutelaProvisoria
                     }
                     else
                     {
+                        string PalavraFinalParaEntrarNoBOW = RemoveAcentuacao(PalavraParaEntrarNoBagOfWords);
+
                         foreach (string PalavraDoBagOfWords in TodasAsPalavrasDoBagOfWords)                  //Verifica se palavra ja esta na bag of words
                         {
-                            if (PalavraParaEntrarNoBagOfWords.ToUpper().Equals(PalavraDoBagOfWords))
+                            if (PalavraFinalParaEntrarNoBOW.ToUpper().Equals(PalavraDoBagOfWords))
                             {
                                 JaEstaNaBagOfWords = true;
                                 break;
                             }
                         }
 
-                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords) && !PalavraContemDigito(PalavraParaEntrarNoBagOfWords) && PalavraParaEntrarNoBagOfWords.Length > 1)    //Se a palavra não está na bag of words, adiciona
+                        if (!JaEstaNaBagOfWords && 
+                            !String.IsNullOrEmpty(PalavraFinalParaEntrarNoBOW) && 
+                            !PalavraContemDigito(PalavraFinalParaEntrarNoBOW) &&
+                            PalavraFinalParaEntrarNoBOW.Length > 1)                   //Se a palavra não está na bag of words, adiciona
                         {
-                            TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToUpper());
+                            TodasAsPalavrasDoBagOfWords.Add(PalavraFinalParaEntrarNoBOW.ToUpper());
                         }
 
                     }
@@ -247,6 +260,11 @@ namespace TCC_TutelaProvisoria
             return Similaridade;
         }
 
+        #endregion
+
+
+        #region [Formatacao de string]
+
         public static List<string> RemovePontuacaoDeUmaListaDeString(List<string> PalavrasDeUmaTutela)
         {
             List<string> PalavrasDeUmaTutelaTemp = new List<string>();
@@ -280,18 +298,29 @@ namespace TCC_TutelaProvisoria
 
         public static string RemoveAcentuacao(string palavra)
         {
-            var normalizedString = palavra.Normalize(NormalizationForm.FormD);
-            var stringBuilder = new StringBuilder();
+            //var normalizedString = palavra.Normalize(NormalizationForm.FormD);
+            //var stringBuilder = new StringBuilder();
 
-            foreach (var c in normalizedString)
+            //foreach (var c in normalizedString)
+            //{
+            //    var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+
+            //    if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+            //        stringBuilder.Append(c);
+            //}
+
+            //return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+
+            if (!string.IsNullOrEmpty(palavra))
             {
-                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-
-                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
-                    stringBuilder.Append(c);
+                Encoding encoding = Encoding.GetEncoding("iso-8859-8");
+                byte[] buffer = encoding.GetBytes(palavra);
+                palavra = encoding.GetString(buffer);
             }
 
-            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+
+            return palavra;
+
         }
 
         public static bool PalavraContemDigito(string palavra)
@@ -310,12 +339,8 @@ namespace TCC_TutelaProvisoria
             return ContemDigito;
         }
 
+        #endregion
 
-        //public static Dictionary<string, int> Retorna()
-        //{
-        //    Dictionary<string, int> 
-
-        //}
 
     }
 }

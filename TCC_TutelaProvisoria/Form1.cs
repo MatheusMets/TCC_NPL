@@ -225,7 +225,7 @@ namespace TCC_TutelaProvisoria
 
             float Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas);
 
-            MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas são: " + Similaridade*100 + "%");
+            MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente " + Similaridade*100 + "%");
 
         }
 
