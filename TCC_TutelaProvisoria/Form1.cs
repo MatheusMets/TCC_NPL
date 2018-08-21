@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Data.SqlClient;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace TCC_TutelaProvisoria
 {
@@ -35,6 +36,8 @@ namespace TCC_TutelaProvisoria
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CheckedListTutelasLidas.Visible = false;
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
                 Title = "Open the Word file: ",
@@ -63,6 +66,8 @@ namespace TCC_TutelaProvisoria
 
         private void pegarCaminhoDaPastaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CheckedListTutelasLidas.Visible = false;
+
             ListaDeDocumentos = new List<string>();
             var L_ListaDeTutelas = new List<Tutela>();
 
@@ -92,11 +97,13 @@ namespace TCC_TutelaProvisoria
             //    MessageBox.Show(tutela.Texto);
             //}
 
-            MessageBox.Show("Leu todas as tutelas!");
+            MessageBox.Show("Leu todas as tutelas!\n Quantidade de tutelas lidas: " + L_ListaDeTutelas.Count);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            CheckedListTutelasLidas.Visible = false;
+
             if (G_ListaDeTutelas != null)
             {
                 richTextBox1.Clear();
@@ -122,6 +129,8 @@ namespace TCC_TutelaProvisoria
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            CheckedListTutelasLidas.Visible = false;
+
             if (G_ListaDeTutelas != null && BagOfWords != null)
             {
                 string relatorio = Util.QuantidadePalavrasPorTutela(G_ListaDeTutelas, BagOfWords);
@@ -143,7 +152,18 @@ namespace TCC_TutelaProvisoria
 
         private void button2_Click(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
+            CheckedListTutelasLidas.Visible = true;
 
+            var Itens = CheckedListTutelasLidas.Items;
+            Itens.Clear();
+
+            foreach (Tutela tutela in G_ListaDeTutelas)
+            {
+                Itens.Add(tutela.Nome);
+            }
+
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -153,6 +173,7 @@ namespace TCC_TutelaProvisoria
 
         private void button3_Click(object sender, EventArgs e)
         {
+            CheckedListTutelasLidas.Visible = false;
             richTextBox1.Clear();
 
             richTextBox1.AppendText("Quantida de tutelas lidas: " + G_ListaDeTutelas.Count + "\n\n");
@@ -167,6 +188,54 @@ namespace TCC_TutelaProvisoria
                 }
             }
 
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CheckedListTutelasLidas.Visible = false;
+            List<string> NomesDasTutelasQueSeraoAnalisadas = new List<string>();
+            List<Tutela> TutelasQueSeraoAnalisadas = new List<Tutela>();
+
+            CheckedItemCollection ItemsMarcados;
+            ItemsMarcados = CheckedListTutelasLidas.CheckedItems;
+
+            foreach (var item in ItemsMarcados)
+            {
+                NomesDasTutelasQueSeraoAnalisadas.Add(item.ToString());
+            }
+
+            foreach(Tutela tutela in G_ListaDeTutelas)
+            {
+
+                foreach (string NomeTutela in NomesDasTutelasQueSeraoAnalisadas)
+                {
+
+                    if (tutela.Nome.Equals(NomeTutela))
+                    {
+                        TutelasQueSeraoAnalisadas.Add(tutela);
+                        break;                                      //Vai sempre pegar o primeiro nome que achar. Esse é o problema de ter tutelas com nomes repetidos. Tinha que tratar com Identificador
+                    }
+                }
+            }
+
+            float Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas);
+
+            MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas são: " + Similaridade*100 + "%");
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int QuantTutelas = G_ListaDeTutelas.Count;
+
+            G_ListaDeTutelas.Clear();
+
+            MessageBox.Show("Tutelas excluidas com sucesso! \n" + QuantTutelas + " tutelas foram excluidas");
         }
     }
 }

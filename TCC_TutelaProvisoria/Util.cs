@@ -206,7 +206,7 @@ namespace TCC_TutelaProvisoria
             int Count;
             string NomeTutelaAtual = String.Empty;
 
-            Relatorio.Append("RELATORIO: QUANTIDADE DE PALAVRAS QUE SE REPETEM POR TUTELA \n\n\n");
+            Relatorio.Append("RELATORIO: QUANTIDADE DE PALAVRAS QUE SE REPETEM POR TUTELA\nQuantida de palavras sendo analisadas: " + BagOfWords.Count + "\n\n");
 
             foreach (string PalavraBagOfWords in BagOfWords)
             {
@@ -236,6 +236,15 @@ namespace TCC_TutelaProvisoria
 
             return Relatorio.ToString();
 
+        }
+
+        public static float RealizaSimilaridade(List<Tutela> ListaDeTutelas)
+        {
+            float Similaridade = 0;
+
+            //TO-DO (Similaridade)
+
+            return Similaridade;
         }
 
         public static List<string> RemovePontuacaoDeUmaListaDeString(List<string> PalavrasDeUmaTutela)
