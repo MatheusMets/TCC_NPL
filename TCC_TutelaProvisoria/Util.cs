@@ -184,7 +184,7 @@ namespace TCC_TutelaProvisoria
                             }
                         }
 
-                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords))    //Se a palavra não está na bag of words, adiciona
+                        if (!JaEstaNaBagOfWords && !String.IsNullOrEmpty(PalavraParaEntrarNoBagOfWords) && !PalavraContemDigito(PalavraParaEntrarNoBagOfWords) && PalavraParaEntrarNoBagOfWords.Length > 1)    //Se a palavra não está na bag of words, adiciona
                         {
                             TodasAsPalavrasDoBagOfWords.Add(PalavraParaEntrarNoBagOfWords.ToUpper());
                         }
@@ -197,23 +197,6 @@ namespace TCC_TutelaProvisoria
             return TodasAsPalavrasDoBagOfWords;
         }
 
-        public static List<string> RemovePontuacaoDeUmaListaDeString(List<string> PalavrasDeUmaTutela)
-        {
-            List<string> PalavrasDeUmaTutelaTemp = new List<string>();
-
-            foreach (string PalavraTemp in PalavrasDeUmaTutela)
-            {
-                var NovaPalavra = RemovePontuacaoDaPalavra(PalavraTemp);
-
-                if (!String.IsNullOrWhiteSpace(NovaPalavra.ToString()))
-                {
-                    PalavrasDeUmaTutelaTemp.Add(NovaPalavra.ToString());
-                }
-                
-            }
-
-            return PalavrasDeUmaTutelaTemp;
-        }
 
         public static string QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
         {
@@ -255,6 +238,24 @@ namespace TCC_TutelaProvisoria
 
         }
 
+        public static List<string> RemovePontuacaoDeUmaListaDeString(List<string> PalavrasDeUmaTutela)
+        {
+            List<string> PalavrasDeUmaTutelaTemp = new List<string>();
+
+            foreach (string PalavraTemp in PalavrasDeUmaTutela)
+            {
+                var NovaPalavra = RemovePontuacaoDaPalavra(PalavraTemp);
+
+                if (!String.IsNullOrWhiteSpace(NovaPalavra.ToString()))
+                {
+                    PalavrasDeUmaTutelaTemp.Add(NovaPalavra.ToString());
+                }
+
+            }
+
+            return PalavrasDeUmaTutelaTemp;
+        }
+
         public static string RemovePontuacaoDaPalavra(string palavra)
         {
             var NovaPalavra = new StringBuilder();
@@ -282,6 +283,22 @@ namespace TCC_TutelaProvisoria
             }
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        public static bool PalavraContemDigito(string palavra)
+        {
+            var ContemDigito = false;
+
+            foreach (char c in palavra)
+            {
+                if (char.IsDigit(c))
+                {
+                    ContemDigito = true;
+                    break;
+                }
+            }
+
+            return ContemDigito;
         }
 
 
