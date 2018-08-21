@@ -26,7 +26,7 @@ namespace TCC_TutelaProvisoria
 
 
         Tutela tutela = new Tutela();
-        List<Tutela> ListaDeTutelas;
+        List<Tutela> G_ListaDeTutelas = new List<Tutela>();
 
         public Form1()
         {
@@ -37,7 +37,7 @@ namespace TCC_TutelaProvisoria
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                Title = "Open the .docx file: ",
+                Title = "Open the Word file: ",
                 DefaultExt = "docx",
                 Filter = "docx files(*.docx)|*.docx|doc files(*.doc)|*.doc|All files(*.*)|*.*"
             };
@@ -54,15 +54,17 @@ namespace TCC_TutelaProvisoria
 
             if (doc != null)
             {
-                string Tutela = Util.RetornaOTextoDeUmArquivoDocx(doc, data);
-                MessageBox.Show(Tutela);
+                string TextoTutela = Util.RetornaOTextoDeUmArquivoDocx(doc, data);
+                tutela = new Tutela(Path.GetFileName(CaminhoDoDocumento), CaminhoDoDocumento, TextoTutela);
+                G_ListaDeTutelas.Add(tutela);
+                MessageBox.Show(TextoTutela);
             }
         }
 
         private void pegarCaminhoDaPastaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListaDeDocumentos = new List<string>();
-            ListaDeTutelas = new List<Tutela>();
+            var L_ListaDeTutelas = new List<Tutela>();
 
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
             {
@@ -77,24 +79,30 @@ namespace TCC_TutelaProvisoria
             CaminhosDosDocumentos = Util.RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(CaminhoDaPasta);
 
             if (CaminhosDosDocumentos != null)
-                ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
+                L_ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
+            foreach (Tutela tutela in L_ListaDeTutelas)
+            {
+                G_ListaDeTutelas.Add(tutela);
+            }
 
             //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
             //foreach (Tutela tutela in ListaDeTutelas)
             //{
             //    MessageBox.Show(tutela.Texto);
             //}
+
+            MessageBox.Show("Leu todas as tutelas!");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ListaDeTutelas != null)
+            if (G_ListaDeTutelas != null)
             {
                 richTextBox1.Clear();
 
                 BagOfWords = new List<string>();
-                BagOfWords = Util.RetornaBagOfWords(ListaDeTutelas);
+                BagOfWords = Util.RetornaBagOfWords(G_ListaDeTutelas);
 
                 MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
 
@@ -114,9 +122,9 @@ namespace TCC_TutelaProvisoria
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (ListaDeTutelas != null && BagOfWords != null)
+            if (G_ListaDeTutelas != null && BagOfWords != null)
             {
-                string relatorio = Util.QuantidadePalavrasPorTutela(ListaDeTutelas, BagOfWords);
+                string relatorio = Util.QuantidadePalavrasPorTutela(G_ListaDeTutelas, BagOfWords);
 
                 richTextBox1.Clear();
                 richTextBox1.AppendText(relatorio);
@@ -135,6 +143,29 @@ namespace TCC_TutelaProvisoria
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+
+            richTextBox1.AppendText("Quantida de tutelas lidas: " + G_ListaDeTutelas.Count + "\n\n");
+
+            if (G_ListaDeTutelas.Count > 0)
+            {
+                richTextBox1.AppendText("TUTELAS\n\n");
+
+                foreach (Tutela tutela in G_ListaDeTutelas)
+                {
+                    richTextBox1.AppendText(tutela.Nome + "\n");
+                }
+            }
 
         }
     }
