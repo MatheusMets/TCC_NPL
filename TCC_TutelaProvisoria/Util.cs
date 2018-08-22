@@ -24,7 +24,7 @@ namespace TCC_TutelaProvisoria
         {
             string[] DocPaths;
 
-            if (!String.IsNullOrEmpty(CaminhoDaPasta))          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
+            if (!String.IsNullOrEmpty(CaminhoDaPasta) && Directory.GetFiles(CaminhoDaPasta).Length > 0)          //Se ele nao for nula nem vazia, pega o caminho de cada arquivo
             {
                 DocPaths = new string[Directory.GetFiles(CaminhoDaPasta).Length - 1];
                 DocPaths = Directory.GetFiles(CaminhoDaPasta);
@@ -210,24 +210,33 @@ namespace TCC_TutelaProvisoria
             return TodasAsPalavrasDoBagOfWords;
         }
 
-
         public static string QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
         {
             List<string> PalavrasDeUmaTutelaTemp = new List<string>();
             List<string> PalavrasDeUmaTutela = new List<string>();
             StringBuilder Relatorio = new StringBuilder();
-            int Count;
+            int CountPalavraAtualDaTutela;
             string NomeTutelaAtual = String.Empty;
+            bool EstaNaTutelaBOW, IsTutelaNova = false;
 
             Relatorio.Append("RELATORIO: QUANTIDADE DE PALAVRAS QUE SE REPETEM POR TUTELA\nQuantida de palavras sendo analisadas: " + BagOfWords.Count + "\n\n");
 
-            foreach (string PalavraBagOfWords in BagOfWords)
+            foreach (Tutela tutela in ListaDeTutelas)
             {
-                Relatorio.Append("/******  PALAVRA SENDO ANALISADA: \"" + PalavraBagOfWords + "\"  ******/ \n");
+                IsTutelaNova = false;
 
-                foreach (Tutela tutela in ListaDeTutelas)
+                if (tutela.QuantPalavrasDaBOW == null)
                 {
-                    Count = 0;
+                    IsTutelaNova = true;
+                    tutela.QuantPalavrasDaBOW = new Dictionary<string, int>();
+                }
+
+                Relatorio.Append("/******  TUTELA SENDO ANALISADA: \"" + tutela.Nome + "\"  ******/ \n");
+
+                foreach (string PalavraBagOfWords in BagOfWords)
+                {
+                    EstaNaTutelaBOW = false;
+                    CountPalavraAtualDaTutela = 0;
 
                     PalavrasDeUmaTutelaTemp = tutela.Texto.Split(' ').ToList();
                     PalavrasDeUmaTutelaTemp = PalavrasDeUmaTutelaTemp.ConvertAll(d => d.ToUpper());
@@ -236,13 +245,35 @@ namespace TCC_TutelaProvisoria
                     foreach (string palavra in PalavrasDeUmaTutela)
                     {
                         if (palavra.Equals(PalavraBagOfWords))
-                            Count++;
+                            CountPalavraAtualDaTutela++;
+                    }
+
+
+                    if (IsTutelaNova)       //Se for uma tutela nova, só adiciona todas as palavras da Bag Of Words
+                    {
+                        tutela.QuantPalavrasDaBOW.Add(PalavraBagOfWords, CountPalavraAtualDaTutela);
+                    }
+                    else                    //Se nao for, verifica se a palavra atual já tem na TutelaBOW. Só adiciona se nao tiver.
+                    {
+                        foreach (string word in tutela.QuantPalavrasDaBOW.Keys)
+                        {
+                            if (PalavraBagOfWords.Equals(word))
+                            {
+                                EstaNaTutelaBOW = true;
+                                break;
+                            }
+                        }
+
+                        if (!EstaNaTutelaBOW)
+                            tutela.QuantPalavrasDaBOW.Add(PalavraBagOfWords, CountPalavraAtualDaTutela);
+
                     }
 
                     NomeTutelaAtual = tutela.Nome;
+                    Relatorio.Append("Palavra \"" + PalavraBagOfWords + "\" foi encontrada " + CountPalavraAtualDaTutela + " vezes na tutela \"" + NomeTutelaAtual + "\"\n");
 
-                    Relatorio.Append("Palavra \"" + PalavraBagOfWords + "\" foi encontrada " + Count + " vezes na tutela \"" + NomeTutelaAtual + "\"\n");
                 }
+
 
                 Relatorio.Append("\n\n");
             }
@@ -250,6 +281,85 @@ namespace TCC_TutelaProvisoria
             return Relatorio.ToString();
 
         }
+
+        //public static string QuantidadePalavrasPorTutela(List<Tutela> ListaDeTutelas, List<string> BagOfWords)
+        //{
+        //    List<string> PalavrasDeUmaTutelaTemp = new List<string>();
+        //    List<string> PalavrasDeUmaTutela = new List<string>();
+        //    StringBuilder Relatorio = new StringBuilder();
+        //    int Count;
+        //    string NomeTutelaAtual = String.Empty;
+        //    bool EstaNaTutelaBOW, IsTutelaNova = false;
+
+        //    Relatorio.Append("RELATORIO: QUANTIDADE DE PALAVRAS QUE SE REPETEM POR TUTELA\nQuantida de palavras sendo analisadas: " + BagOfWords.Count + "\n\n");
+
+        //    foreach (string PalavraBagOfWords in BagOfWords)
+        //    {
+        //        Relatorio.Append("/******  PALAVRA SENDO ANALISADA: \"" + PalavraBagOfWords + "\"  ******/ \n");
+
+        //        foreach (Tutela tutela in ListaDeTutelas)
+        //        {
+        //            EstaNaTutelaBOW = false;
+        //            IsTutelaNova = false;
+
+        //            if (tutela.QuantPalavrasDaBOW == null)
+        //            {
+        //                IsTutelaNova = true;
+        //                tutela.QuantPalavrasDaBOW = new Dictionary<string, int>();
+        //            }
+
+
+        //            Count = 0;
+
+        //            PalavrasDeUmaTutelaTemp = tutela.Texto.Split(' ').ToList();
+        //            PalavrasDeUmaTutelaTemp = PalavrasDeUmaTutelaTemp.ConvertAll(d => d.ToUpper());
+        //            PalavrasDeUmaTutela = RemovePontuacaoDeUmaListaDeString(PalavrasDeUmaTutelaTemp);
+
+        //            foreach (string palavra in PalavrasDeUmaTutela)
+        //            {
+        //                if (palavra.Equals(PalavraBagOfWords))
+        //                    Count++;
+        //            }
+
+
+
+        //            if (IsTutelaNova)
+        //            {
+        //                tutela.QuantPalavrasDaBOW.Add(PalavraBagOfWords, Count);
+        //            }
+        //            else
+        //            {
+        //                foreach (string word in tutela.QuantPalavrasDaBOW.Keys)
+        //                {
+        //                    if (PalavraBagOfWords.Equals(word))
+        //                    {
+        //                        EstaNaTutelaBOW = true;
+        //                        break;
+        //                    }
+        //                }
+
+        //                if (EstaNaTutelaBOW)
+        //                {
+        //                    tutela.QuantPalavrasDaBOW[PalavraBagOfWords] = Count;
+        //                }
+        //                else
+        //                {
+        //                    tutela.QuantPalavrasDaBOW.Add(PalavraBagOfWords, Count);
+        //                }
+        //            }
+
+        //            NomeTutelaAtual = tutela.Nome;
+        //            Relatorio.Append("Palavra \"" + PalavraBagOfWords + "\" foi encontrada " + Count + " vezes na tutela \"" + NomeTutelaAtual + "\"\n");
+
+        //        }
+
+
+        //        Relatorio.Append("\n\n");
+        //    }
+
+        //    return Relatorio.ToString();
+
+        //}
 
         public static float RealizaSimilaridade(Tutela tutela1, Tutela tutela2)
         {

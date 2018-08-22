@@ -12,12 +12,14 @@ namespace TCC_TutelaProvisoria
         string caminho;
         string texto;
         bool aprovada;
+        Dictionary<string, int> quantPalavrasDaBOW;
 
         public Tutela(string nome, string caminho, string texto)
         {
             this.nome = nome;
             this.caminho = caminho;
             this.texto = texto;
+            //quantPalavrasDaBOW = new Dictionary<string, int>();
         }
 
 
@@ -76,6 +78,18 @@ namespace TCC_TutelaProvisoria
             set
             {
                 aprovada = value;
+            }
+        }
+
+        public Dictionary<string, int> QuantPalavrasDaBOW
+        {
+            get
+            {
+                return quantPalavrasDaBOW;
+            }
+            set
+            {
+                quantPalavrasDaBOW = value;
             }
         }
 

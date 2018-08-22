@@ -84,20 +84,26 @@ namespace TCC_TutelaProvisoria
             CaminhosDosDocumentos = Util.RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(CaminhoDaPasta);
 
             if (CaminhosDosDocumentos != null)
+            {
                 L_ListaDeTutelas = Util.RetornaTodosOsTextosDeArquivosDocx(CaminhosDosDocumentos);
 
-            foreach (Tutela tutela in L_ListaDeTutelas)
-            {
-                G_ListaDeTutelas.Add(tutela);
+                foreach (Tutela tutela in L_ListaDeTutelas)
+                {
+                    G_ListaDeTutelas.Add(tutela);
+                }
+
+                //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
+                //foreach (Tutela tutela in ListaDeTutelas)
+                //{
+                //    MessageBox.Show(tutela.Texto);
+                //}
+
+                MessageBox.Show("Leu todas as tutelas!\n Quantidade de tutelas lidas: " + L_ListaDeTutelas.Count);
             }
-
-            //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
-            //foreach (Tutela tutela in ListaDeTutelas)
-            //{
-            //    MessageBox.Show(tutela.Texto);
-            //}
-
-            MessageBox.Show("Leu todas as tutelas!\n Quantidade de tutelas lidas: " + L_ListaDeTutelas.Count);
+            else
+            {
+                MessageBox.Show("Nada havia nesta pasta. Escolha uma pasta que contenha arquivos word :/");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

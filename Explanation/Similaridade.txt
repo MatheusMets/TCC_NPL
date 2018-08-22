@@ -7,6 +7,8 @@ Doc1: cabo, trem, notebook, celular, mouse, word, cabo		(7)
 Doc2: trem, trem, celular, fone, trem						(5)	
 Doc3: notebook, antena, vm, fone, word 						(5)
 
+9 palavras
+
 BOW:   trem  notebook  celular  mouse   word   fone    vm    antena   cabo
 Doc1:   1		1        1        1       1     0       0       0       2
 Doc2:   3       0        1        0       0     1       0       0       0
