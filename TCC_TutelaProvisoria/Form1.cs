@@ -234,7 +234,7 @@ namespace TCC_TutelaProvisoria
                     }
                 }
 
-                float Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas.ElementAt(0), TutelasQueSeraoAnalisadas.ElementAt(1));
+                double Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas.ElementAt(0), TutelasQueSeraoAnalisadas.ElementAt(1));
 
                 MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente " + Similaridade * 100 + "%");
             }

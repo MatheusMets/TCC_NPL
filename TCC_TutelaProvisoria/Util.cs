@@ -361,11 +361,30 @@ namespace TCC_TutelaProvisoria
 
         //}
 
-        public static float RealizaSimilaridade(Tutela tutela1, Tutela tutela2)
+        public static double RealizaSimilaridade(Tutela tutela1, Tutela tutela2)
         {
-            float Similaridade = 0;
+            double Denominador = 0, Similaridade = 0, Raiz1 = 0, Raiz2 = 0;
+            int Numerador = 0;
 
+            var BOW = tutela1.QuantPalavrasDaBOW.Keys.ToList();
+
+            foreach (string PalavraDoBOW in BOW)
+            {
+                Numerador += tutela1.QuantPalavrasDaBOW[PalavraDoBOW] * tutela2.QuantPalavrasDaBOW[PalavraDoBOW];
+            }
             
+            foreach (int value in tutela1.QuantPalavrasDaBOW.Values)
+            {
+                Raiz1 += Math.Pow(value, 2);
+            }
+
+            foreach (int value in tutela2.QuantPalavrasDaBOW.Values)
+            {
+                Raiz2 += Math.Pow(value, 2);
+            }
+
+            Denominador = Math.Sqrt(Raiz1) + Math.Sqrt(Raiz2);
+            Similaridade = Numerador / Denominador;
 
             return Similaridade;
         }
