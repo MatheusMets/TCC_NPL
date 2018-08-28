@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TCC_TutelaProvisoria {
+namespace TCC_TutelaProvisoria.Recursos {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace TCC_TutelaProvisoria {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class MensagensSistema {
@@ -39,7 +39,7 @@ namespace TCC_TutelaProvisoria {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TCC_TutelaProvisoria.MensagensSistema", typeof(MensagensSistema).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TCC_TutelaProvisoria.Recursos.MensagensSistema", typeof(MensagensSistema).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

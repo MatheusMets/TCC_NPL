@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using System.Data.SqlClient;
 using System.Globalization;
+using TCC_TutelaProvisoria.Recursos;
 
 namespace TCC_TutelaProvisoria
 {

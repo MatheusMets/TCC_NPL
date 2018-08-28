@@ -141,9 +141,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(0, 136);
+            this.richTextBox1.Location = new System.Drawing.Point(17, 145);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1075, 634);
+            this.richTextBox1.Size = new System.Drawing.Size(1073, 436);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -193,9 +193,9 @@
             // 
             this.CheckedListTutelasLidas.CheckOnClick = true;
             this.CheckedListTutelasLidas.FormattingEnabled = true;
-            this.CheckedListTutelasLidas.Location = new System.Drawing.Point(12, 147);
+            this.CheckedListTutelasLidas.Location = new System.Drawing.Point(116, 187);
             this.CheckedListTutelasLidas.Name = "CheckedListTutelasLidas";
-            this.CheckedListTutelasLidas.Size = new System.Drawing.Size(851, 544);
+            this.CheckedListTutelasLidas.Size = new System.Drawing.Size(851, 394);
             this.CheckedListTutelasLidas.TabIndex = 11;
             this.CheckedListTutelasLidas.Visible = false;
             this.CheckedListTutelasLidas.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckedListTutelasLidas_ItemCheck);
@@ -239,9 +239,9 @@
             this.Histograma.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.Histograma.Legends.Add(legend1);
-            this.Histograma.Location = new System.Drawing.Point(12, 167);
+            this.Histograma.Location = new System.Drawing.Point(17, 178);
             this.Histograma.Name = "Histograma";
-            this.Histograma.Size = new System.Drawing.Size(1325, 723);
+            this.Histograma.Size = new System.Drawing.Size(1278, 417);
             this.Histograma.TabIndex = 15;
             this.Histograma.Text = "Histograma";
             this.Histograma.Visible = false;
@@ -251,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 911);
+            this.ClientSize = new System.Drawing.Size(1349, 607);
             this.Controls.Add(this.Histograma);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);

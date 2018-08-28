@@ -11,6 +11,7 @@ using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Data.SqlClient;
 using static System.Windows.Forms.CheckedListBox;
+using TCC_TutelaProvisoria.Recursos;
 
 namespace TCC_TutelaProvisoria
 {
@@ -274,37 +275,45 @@ namespace TCC_TutelaProvisoria
         {
             CheckedListTutelasLidas.Visible = false;
             Histograma.Visible = true;
+            richTextBox1.Clear();
 
-            try
-            {
-                Histograma.Titles.Clear();
-                Histograma.Titles.Add("Histograma das tutelas");
+            //try
+            //{
+            //    Histograma.Titles.Clear();
+            //    Histograma.Titles.Add("Histograma das tutelas");
 
-                foreach (string PalavraDoBOW in BagOfWords)
-                {
-                    Histograma.Series.Add(PalavraDoBOW);
-                }
+            //    foreach (Tutela tutela in G_ListaDeTutelas)
+            //    {
+            //        Histograma.Series.Add(tutela.Nome);
+            //    }
 
-                foreach (string palavraAnalisada in BagOfWords)
-                {
-                    //Histograma.Series.Add(palavraAnalisada);
+            //    foreach (Tutela tutela in G_ListaDeTutelas)
+            //    {
+            //        foreach (string palavraAnalisada in BagOfWords)
+            //        {
 
-                    foreach (Tutela tutela in G_ListaDeTutelas)
-                    {
-                        Histograma.Series[tutela.Nome].Points.AddXY(palavraAnalisada, tutela.QuantPalavrasDaBOW[palavraAnalisada]);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(MensagensSistema.ErroPadrao + "\n\n" + ex.Message);
-            }
+            //            Histograma.Series[tutela.Nome].Points.AddXY(Convert.ToString(tutela.QuantPalavrasDaBOW[palavraAnalisada]), palavraAnalisada);
+            //        }
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(MensagensSistema.ErroPadrao + "\n\n" + ex.Message);
+            //}
+
+
+
 
 
             //Histograma.Series.Add("s1");
-
             //Histograma.Series["s1"].Points.AddXY("Day1", "100");
 
+            foreach (Tutela tutela in G_ListaDeTutelas)
+            {
+                Histograma.Series.Add(tutela.Nome);
+                Histograma.Series[tutela.Nome].Points.AddXY(tutela.Nome, "100");
+            }
         }
 
         private void Histograma_Click(object sender, EventArgs e)

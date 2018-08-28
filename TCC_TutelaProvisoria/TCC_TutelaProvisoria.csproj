@@ -60,7 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MensagensSistema.Designer.cs">
+    <Compile Include="Recursos\MensagensSistema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MensagensSistema.resx</DependentUpon>
@@ -79,7 +79,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MensagensSistema.resx">
+    <EmbeddedResource Include="Recursos\MensagensSistema.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MensagensSistema.Designer.cs</LastGenOutput>
     </EmbeddedResource>
