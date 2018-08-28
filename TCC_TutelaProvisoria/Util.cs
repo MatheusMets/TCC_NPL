@@ -65,13 +65,12 @@ namespace TCC_TutelaProvisoria
                 CaminhoDoDocumento.EndsWith(".dot") ||
                 CaminhoDoDocumento.EndsWith(".dotx") ||
                 CaminhoDoDocumento.EndsWith(".dotm"))
-            {
-                return true;
-            }
+            
+                    return true;
+            
             else
-            {
                 return false;
-            }
+            
 
         }
 
@@ -111,7 +110,7 @@ namespace TCC_TutelaProvisoria
 
             catch (Exception)
             {
-                MessageBox.Show("Primeiro carregue uma arquivo word para poder le-lo");
+                MessageBox.Show(MensagensSistema.CarregueAlgumArquivo);
                 return null;
             }
 

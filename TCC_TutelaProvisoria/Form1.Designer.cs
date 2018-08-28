@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -47,7 +49,10 @@
             this.CheckedListTutelasLidas = new System.Windows.Forms.CheckedListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.Histograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Histograma)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -59,7 +64,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1070, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1349, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +75,7 @@
             this.sobreToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1070, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1349, 24);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
@@ -90,6 +95,7 @@
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
             this.novoToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.novoToolStripMenuItem.Text = "Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
@@ -115,7 +121,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(402, 24);
+            this.label1.Location = new System.Drawing.Point(538, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 25);
             this.label1.TabIndex = 3;
@@ -125,7 +131,7 @@
             // CriaBOW
             // 
             this.CriaBOW.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriaBOW.Location = new System.Drawing.Point(12, 69);
+            this.CriaBOW.Location = new System.Drawing.Point(17, 65);
             this.CriaBOW.Name = "CriaBOW";
             this.CriaBOW.Size = new System.Drawing.Size(151, 56);
             this.CriaBOW.TabIndex = 4;
@@ -137,7 +143,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(0, 136);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1070, 573);
+            this.richTextBox1.Size = new System.Drawing.Size(1075, 634);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -145,7 +151,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(183, 69);
+            this.button1.Location = new System.Drawing.Point(188, 65);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 56);
             this.button1.TabIndex = 6;
@@ -156,7 +162,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(735, 68);
+            this.button2.Location = new System.Drawing.Point(531, 64);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 56);
             this.button2.TabIndex = 7;
@@ -175,7 +181,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(868, 12);
+            this.button3.Location = new System.Drawing.Point(1126, 13);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 24);
             this.button3.TabIndex = 10;
@@ -198,7 +204,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(907, 69);
+            this.button4.Location = new System.Drawing.Point(703, 65);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(151, 56);
             this.button4.TabIndex = 12;
@@ -208,7 +214,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(960, 13);
+            this.button5.Location = new System.Drawing.Point(1227, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 24);
             this.button5.TabIndex = 13;
@@ -216,11 +222,38 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(361, 65);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(151, 56);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Montar Histograma";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // Histograma
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Histograma.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Histograma.Legends.Add(legend1);
+            this.Histograma.Location = new System.Drawing.Point(12, 167);
+            this.Histograma.Name = "Histograma";
+            this.Histograma.Size = new System.Drawing.Size(1325, 723);
+            this.Histograma.TabIndex = 15;
+            this.Histograma.Text = "Histograma";
+            this.Histograma.Visible = false;
+            this.Histograma.Click += new System.EventHandler(this.Histograma_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 718);
+            this.ClientSize = new System.Drawing.Size(1349, 911);
+            this.Controls.Add(this.Histograma);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.CheckedListTutelasLidas);
@@ -239,6 +272,7 @@
             this.Text = "Form1";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Histograma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +298,8 @@
         private System.Windows.Forms.CheckedListBox CheckedListTutelasLidas;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Histograma;
     }
 }
 

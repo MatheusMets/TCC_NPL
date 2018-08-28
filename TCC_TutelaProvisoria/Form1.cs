@@ -37,6 +37,7 @@ namespace TCC_TutelaProvisoria
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
@@ -52,7 +53,7 @@ namespace TCC_TutelaProvisoria
                 //wordDoc = new Word.Application();
                 //wordDoc.Visible = true;           //Abre o arquivo no pc quando der o Open
                 doc = Util.GerarInstanciaDocumento(CaminhoDoDocumento);
-                
+
             }
 
             if (doc != null)
@@ -67,6 +68,7 @@ namespace TCC_TutelaProvisoria
         private void pegarCaminhoDaPastaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
 
             ListaDeDocumentos = new List<string>();
             var L_ListaDeTutelas = new List<Tutela>();
@@ -102,13 +104,14 @@ namespace TCC_TutelaProvisoria
             }
             else
             {
-                MessageBox.Show("Nada havia nesta pasta. Escolha uma pasta que contenha arquivos word :/");
+                MessageBox.Show(MensagensSistema.PastaVazia);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
 
             if (G_ListaDeTutelas != null)
             {
@@ -136,6 +139,7 @@ namespace TCC_TutelaProvisoria
         private void button1_Click_1(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
 
             if (G_ListaDeTutelas != null && BagOfWords != null)
             {
@@ -160,6 +164,7 @@ namespace TCC_TutelaProvisoria
         {
             richTextBox1.Clear();
             CheckedListTutelasLidas.Visible = true;
+            Histograma.Visible = false;
 
             var Itens = CheckedListTutelasLidas.Items;
             Itens.Clear();
@@ -169,7 +174,7 @@ namespace TCC_TutelaProvisoria
                 Itens.Add(tutela.Nome);
             }
 
-            
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -180,9 +185,10 @@ namespace TCC_TutelaProvisoria
         private void button3_Click(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
             richTextBox1.Clear();
 
-            richTextBox1.AppendText("Quantida de tutelas lidas: " + G_ListaDeTutelas.Count + "\n\n");
+            richTextBox1.AppendText(MensagensSistema.QuantidadeTutelasLidas + G_ListaDeTutelas.Count + "\n\n");
 
             if (G_ListaDeTutelas.Count > 0)
             {
@@ -204,6 +210,7 @@ namespace TCC_TutelaProvisoria
         private void button4_Click(object sender, EventArgs e)
         {
             CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = false;
             List<string> NomesDasTutelasQueSeraoAnalisadas = new List<string>();
             List<Tutela> TutelasQueSeraoAnalisadas = new List<Tutela>();
 
@@ -234,15 +241,22 @@ namespace TCC_TutelaProvisoria
                     }
                 }
 
-                double Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas.ElementAt(0), TutelasQueSeraoAnalisadas.ElementAt(1));
-
-                MessageBox.Show("A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente " + Similaridade * 100 + "%");
+                if (TutelasQueSeraoAnalisadas.Count > 0)
+                {
+                    double Similaridade = Util.RealizaSimilaridade(TutelasQueSeraoAnalisadas.ElementAt(0), TutelasQueSeraoAnalisadas.ElementAt(1));
+                    MessageBox.Show(MensagensSistema.PorcentagemSimilaridade + Similaridade * 100 + "%");
+                }
+                else
+                {
+                    MessageBox.Show(MensagensSistema.SelecionarDois);
+                }
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             int QuantTutelas = G_ListaDeTutelas.Count;
+            Histograma.Visible = false;
 
             G_ListaDeTutelas.Clear();
 
@@ -253,6 +267,53 @@ namespace TCC_TutelaProvisoria
         {
             if (e.NewValue == CheckState.Checked && CheckedListTutelasLidas.CheckedItems.Count >= 2)
                 e.NewValue = CheckState.Unchecked;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            CheckedListTutelasLidas.Visible = false;
+            Histograma.Visible = true;
+
+            try
+            {
+                Histograma.Titles.Clear();
+                Histograma.Titles.Add("Histograma das tutelas");
+
+                foreach (string PalavraDoBOW in BagOfWords)
+                {
+                    Histograma.Series.Add(PalavraDoBOW);
+                }
+
+                foreach (string palavraAnalisada in BagOfWords)
+                {
+                    //Histograma.Series.Add(palavraAnalisada);
+
+                    foreach (Tutela tutela in G_ListaDeTutelas)
+                    {
+                        Histograma.Series[tutela.Nome].Points.AddXY(palavraAnalisada, tutela.QuantPalavrasDaBOW[palavraAnalisada]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(MensagensSistema.ErroPadrao + "\n\n" + ex.Message);
+            }
+
+
+            //Histograma.Series.Add("s1");
+
+            //Histograma.Series["s1"].Points.AddXY("Day1", "100");
+
+        }
+
+        private void Histograma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
