@@ -123,16 +123,27 @@
   <data name="ErroPadrao" xml:space="preserve">
     <value>Erro inesperado: </value>
   </data>
+  <data name="LeuTodasTutelas" xml:space="preserve">
+    <value>Leu todas as tutelas!
+Quantidade de tutelas lidas: </value>
+  </data>
   <data name="PastaVazia" xml:space="preserve">
     <value>Nada havia nesta pasta. Escolha uma pasta que contenha arquivos word :/</value>
   </data>
   <data name="PorcentagemSimilaridade" xml:space="preserve">
     <value>A porcentagem de semelhança entre as tutelas analisadas é de aproximadamente </value>
   </data>
+  <data name="QuantidadePalavrasEncontradas" xml:space="preserve">
+    <value>Quant. de palavras encontradas: </value>
+  </data>
   <data name="QuantidadeTutelasLidas" xml:space="preserve">
     <value>Quantida de tutelas lidas: </value>
   </data>
   <data name="SelecionarDois" xml:space="preserve">
     <value>Selecione dois arquivos para comparação.</value>
+  </data>
+  <data name="TutelasExcluidasSuccess" xml:space="preserve">
+    <value>Tutelas excluídas com sucesso!
+{0} tutelas foram excluídas.</value>
   </data>
 </root>

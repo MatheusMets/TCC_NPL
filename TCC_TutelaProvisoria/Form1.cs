@@ -99,8 +99,8 @@ namespace TCC_TutelaProvisoria
                 //{
                 //    MessageBox.Show(tutela.Texto);
                 //}
-
-                MessageBox.Show("Leu todas as tutelas!\n Quantidade de tutelas lidas: " + L_ListaDeTutelas.Count);
+                
+                MessageBox.Show(String.Format(MensagensSistema.LeuTodasTutelas) + L_ListaDeTutelas.Count);
             }
             else
             {
@@ -120,7 +120,7 @@ namespace TCC_TutelaProvisoria
                 BagOfWords = new List<string>();
                 BagOfWords = Util.RetornaBagOfWords(G_ListaDeTutelas);
 
-                MessageBox.Show("Quant. de palavras encontradas: " + BagOfWords.Count);
+                MessageBox.Show(MensagensSistema.QuantidadePalavrasEncontradas + BagOfWords.Count);
 
                 richTextBox1.Show();
 
@@ -260,7 +260,8 @@ namespace TCC_TutelaProvisoria
 
             G_ListaDeTutelas.Clear();
 
-            MessageBox.Show("Tutelas excluidas com sucesso! \n" + QuantTutelas + " tutelas foram excluidas");
+            //MessageBox.Show("Tutelas excluídas com sucesso! \n" + QuantTutelas + " tutelas foram excluídas.");
+            MessageBox.Show(String.Format(MensagensSistema.TutelasExcluidasSuccess, QuantTutelas));
         }
 
         private void CheckedListTutelasLidas_ItemCheck(object sender, ItemCheckEventArgs e)

@@ -19,7 +19,7 @@ namespace TCC_TutelaProvisoria {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class MensagensSistema {
@@ -79,6 +79,16 @@ namespace TCC_TutelaProvisoria {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Leu todas as tutelas!
+        ///Quantidade de tutelas lidas: .
+        /// </summary>
+        internal static string LeuTodasTutelas {
+            get {
+                return ResourceManager.GetString("LeuTodasTutelas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nada havia nesta pasta. Escolha uma pasta que contenha arquivos word :/.
         /// </summary>
         internal static string PastaVazia {
@@ -97,6 +107,15 @@ namespace TCC_TutelaProvisoria {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quant. de palavras encontradas: .
+        /// </summary>
+        internal static string QuantidadePalavrasEncontradas {
+            get {
+                return ResourceManager.GetString("QuantidadePalavrasEncontradas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantida de tutelas lidas: .
         /// </summary>
         internal static string QuantidadeTutelasLidas {
@@ -111,6 +130,16 @@ namespace TCC_TutelaProvisoria {
         internal static string SelecionarDois {
             get {
                 return ResourceManager.GetString("SelecionarDois", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tutelas excluídas com sucesso!
+        ///{0} tutelas foram excluídas..
+        /// </summary>
+        internal static string TutelasExcluidasSuccess {
+            get {
+                return ResourceManager.GetString("TutelasExcluidasSuccess", resourceCulture);
             }
         }
     }

@@ -39,3 +39,15 @@ C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\T
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.MensagensSistema.resources
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Testes BagOfWords\Test1.docx
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojAssemblyReference.cache
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.MensagensSistema.resources
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.cache
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CoreCompileInputs.cache
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
