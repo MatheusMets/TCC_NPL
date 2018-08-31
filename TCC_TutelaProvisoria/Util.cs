@@ -15,7 +15,6 @@ namespace TCC_TutelaProvisoria
 {
     public static class Util
     {
-
         public static SqlConnection RetornaConexao(string StrConnection)
         {
             SqlConnection Con1 = new SqlConnection(StrConnection);
@@ -468,6 +467,62 @@ namespace TCC_TutelaProvisoria
 
             return ContemDigito;
         }
+
+        #endregion
+
+
+        #region [AuxiliarSQL]
+
+        public static void RunSQLScript(string script)
+        {
+            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
+
+            using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
+            {
+                SqlC.Open();
+
+                using (SqlCommand dbCommand = new SqlCommand(script, SqlC))
+                {
+                    dbCommand.CommandText = script;
+                    dbCommand.ExecuteNonQuery();
+                }
+            }
+
+            Console.WriteLine("Rodou script SQL");
+        }
+
+        public static List<string> RetornaResultadoQueryDeUmaLinha(string ConsultaASerExecutada)
+        {
+            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
+
+            List<string> QueryResults = new List<string>();
+            int NumberOfColumns;
+
+            using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
+            {
+                SqlC.Open();
+
+                using (SqlCommand dbCommand = new SqlCommand(ConsultaASerExecutada, SqlC))
+                {
+                    using (SqlDataReader reader = dbCommand.ExecuteReader())
+                    {
+                        NumberOfColumns = reader.FieldCount;
+
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < NumberOfColumns; i++)
+                            {
+                                QueryResults.Add(reader.GetString(i));
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            return QueryResults;
+        }
+
 
         #endregion
 
