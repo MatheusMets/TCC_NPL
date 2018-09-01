@@ -16,6 +16,9 @@ namespace TCC_TutelaProvisoria
 {
     public static class Util
     {
+
+        #region [Manipulacao arquivo word]
+
         public static string[] RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(string CaminhoDaPasta)
         {
             string[] DocPaths;
@@ -31,9 +34,6 @@ namespace TCC_TutelaProvisoria
                 return null;
             }
         }
-
-
-        #region [Manipulacao arquivo word]
 
         public static void SelectionFind(Word.Application Doc, object findText)
         {
@@ -474,10 +474,7 @@ namespace TCC_TutelaProvisoria
 
             SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder(connection)
             {
-                //DataSource = "SRVFABRICA01",
-                //InitialCatalog = "Testes.Rumo.Intranet",
-                //UserID = "rumohomolog01",
-                //Password = "@rumo123"
+
             };
 
 
