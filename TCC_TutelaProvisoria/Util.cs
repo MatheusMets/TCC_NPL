@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,6 @@ namespace TCC_TutelaProvisoria
 {
     public static class Util
     {
-        public static SqlConnection RetornaConexao(string StrConnection)
-        {
-            SqlConnection Con1 = new SqlConnection(StrConnection);
-            return Con1;
-        }
-
         public static string[] RetornaTodosOsCaminhosDeArquivosBaseadoNumaPasta(string CaminhoDaPasta)
         {
             string[] DocPaths;
@@ -471,11 +466,20 @@ namespace TCC_TutelaProvisoria
         #endregion
 
 
-        #region [AuxiliarSQL]
+        #region [MetodosSQL]
 
         public static void RunSQLScript(string script)
         {
-            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
+            var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder(connection)
+            {
+                //DataSource = "SRVFABRICA01",
+                //InitialCatalog = "Testes.Rumo.Intranet",
+                //UserID = "rumohomolog01",
+                //Password = "@rumo123"
+            };
+
 
             using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
             {

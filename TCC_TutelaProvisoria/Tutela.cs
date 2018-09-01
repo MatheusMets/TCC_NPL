@@ -19,7 +19,6 @@ namespace TCC_TutelaProvisoria
             this.nome = nome;
             this.caminho = caminho;
             this.texto = texto;
-            //quantPalavrasDaBOW = new Dictionary<string, int>();
         }
 
 
