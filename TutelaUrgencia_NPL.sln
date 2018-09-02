@@ -9,6 +9,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		MatheusCasa|Any CPU = MatheusCasa|Any CPU
+		MatheusNote|Any CPU = MatheusNote|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -16,6 +17,8 @@ Global
 		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.MatheusCasa|Any CPU.ActiveCfg = MatheusCasa|Any CPU
 		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.MatheusCasa|Any CPU.Build.0 = MatheusCasa|Any CPU
+		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.MatheusNote|Any CPU.ActiveCfg = MatheusNote|Any CPU
+		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.MatheusNote|Any CPU.Build.0 = MatheusNote|Any CPU
 		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B39BDD8C-EE9F-433E-8580-01E528D29D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

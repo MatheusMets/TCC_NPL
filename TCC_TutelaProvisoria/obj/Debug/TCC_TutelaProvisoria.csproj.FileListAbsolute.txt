@@ -82,3 +82,7 @@ C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\IKVM.Runtime.JNI.dll
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\opennlp-tools-1.8.4.dll
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\opennlp-uima-1.8.4.dll
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\opennlp-tools-1.8.4.dll
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\opennlp-uima-1.8.4.dll
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
+D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
