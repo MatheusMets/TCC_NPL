@@ -13,3 +13,4 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\MatheusCasa
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\MatheusCasa\TCC_TutelaProvisoria.csproj.CopyComplete
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\MatheusCasa\TCC_TutelaProvisoria.exe
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\MatheusCasa\TCC_TutelaProvisoria.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\MatheusCasa\TCC_TutelaProvisoria.exe.config
