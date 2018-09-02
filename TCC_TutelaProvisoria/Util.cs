@@ -468,8 +468,24 @@ namespace TCC_TutelaProvisoria
 
         #region [MetodosSQL]
 
-        public static void SalvaNoBancoTodasAsTutelasLidas()
+        public static void SalvaTutelaNoBanco(Tutela tutela)
         {
+            RunSQLScript(@"INSERT INTO Tutela
+                                     VALUES(" +
+                        tutela.Nome + ", " +
+                        tutela.Caminho + ", " +
+                        tutela.Texto + ", " +
+                        "NULL);"
+                     );
+        }
+
+        public static void SalvaNoBancoTodasAsTutelasLidas(List<Tutela> p_ListaDeTutela)
+        {
+
+            foreach(Tutela tutela in p_ListaDeTutela)
+            {
+                SalvaTutelaNoBanco(tutela);
+            }
 
         }
 

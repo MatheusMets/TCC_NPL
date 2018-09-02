@@ -62,7 +62,9 @@ namespace TCC_TutelaProvisoria
             {
                 string TextoTutela = Util.RetornaOTextoDeUmArquivoDocx(doc, data);
                 tutela = new Tutela(Path.GetFileName(CaminhoDoDocumento), CaminhoDoDocumento, TextoTutela);
+
                 G_ListaDeTutelas.Add(tutela);
+                Util.SalvaTutelaNoBanco(tutela);
                 MessageBox.Show(TextoTutela);
             }
         }
@@ -96,12 +98,14 @@ namespace TCC_TutelaProvisoria
                     G_ListaDeTutelas.Add(tutela);
                 }
 
+                Util.SalvaNoBancoTodasAsTutelasLidas(L_ListaDeTutelas);
+
                 //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
                 //foreach (Tutela tutela in ListaDeTutelas)
                 //{
                 //    MessageBox.Show(tutela.Texto);
                 //}
-                
+
                 MessageBox.Show(String.Format(MensagensSistema.LeuTodasTutelas) + L_ListaDeTutelas.Count);
             }
             else
