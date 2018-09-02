@@ -468,6 +468,11 @@ namespace TCC_TutelaProvisoria
 
         #region [MetodosSQL]
 
+        public static void SalvaNoBancoTodasAsTutelasLidas()
+        {
+
+        }
+
         public static void RunSQLScript(string script)
         {
             var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
