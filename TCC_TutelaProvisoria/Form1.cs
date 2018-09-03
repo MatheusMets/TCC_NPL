@@ -116,14 +116,6 @@ namespace TCC_TutelaProvisoria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Util.RunSQLScript(@"INSERT INTO Tutela
-                                     VALUES(
-                                        'NomeTeste'
-                                        ,NULL
-                                        ,'TextoDaTutelaTeste'
-                                        , NULL
-                                     )");
-
             CheckedListTutelasLidas.Visible = false;
             Histograma.Visible = false;
 

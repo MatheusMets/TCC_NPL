@@ -471,10 +471,10 @@ namespace TCC_TutelaProvisoria
         public static void SalvaTutelaNoBanco(Tutela tutela)
         {
             RunSQLScript(@"INSERT INTO Tutela
-                                     VALUES('" +
-                        tutela.Nome + "', '" +
-                        tutela.Caminho + "', '" +
-                        tutela.Texto + "', " +
+                              VALUES('" +
+                        tutela.Nome     + "', '" +
+                        tutela.Caminho  + "', '" +
+                        tutela.Texto    + "',  " +
                         "NULL);"
                      );
         }
@@ -492,11 +492,7 @@ namespace TCC_TutelaProvisoria
         public static void RunSQLScript(string script)
         {
             var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder(connection)
-            {
-
-            };
+            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder(connection);
 
 
             using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
