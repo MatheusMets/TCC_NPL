@@ -46,7 +46,6 @@ D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TC
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojAssemblyReference.cache
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
-D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.MensagensSistema.resources
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.cache
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CoreCompileInputs.cache
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
@@ -74,3 +73,4 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\openn
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\opennlp-uima-1.8.4.dll
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -125,7 +125,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "ANALISE DE TUTELA";
+            this.label1.Text = "ANÁLISE DE TUTELA";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CriaBOW
@@ -235,10 +235,10 @@
             // 
             // Histograma
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Histograma.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Histograma.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.Histograma.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.Histograma.Legends.Add(legend5);
             this.Histograma.Location = new System.Drawing.Point(17, 178);
             this.Histograma.Name = "Histograma";
             this.Histograma.Size = new System.Drawing.Size(1278, 417);
@@ -251,6 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1349, 607);
             this.Controls.Add(this.Histograma);
             this.Controls.Add(this.button6);
@@ -266,10 +267,11 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.CriaBOW);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Análise de Tutela";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Histograma)).EndInit();
