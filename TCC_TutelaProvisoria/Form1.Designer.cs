@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -51,6 +51,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.Histograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Histograma)).BeginInit();
             this.SuspendLayout();
@@ -235,10 +236,10 @@
             // 
             // Histograma
             // 
-            chartArea5.Name = "ChartArea1";
-            this.Histograma.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.Histograma.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.Histograma.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Histograma.Legends.Add(legend1);
             this.Histograma.Location = new System.Drawing.Point(17, 178);
             this.Histograma.Name = "Histograma";
             this.Histograma.Size = new System.Drawing.Size(1278, 417);
@@ -247,12 +248,24 @@
             this.Histograma.Visible = false;
             this.Histograma.Click += new System.EventHandler(this.Histograma_Click);
             // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(1200, 64);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(137, 43);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "Carrega imagem para extrair texto";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1349, 607);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.Histograma);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -302,6 +315,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataVisualization.Charting.Chart Histograma;
+        private System.Windows.Forms.Button button7;
     }
 }
 

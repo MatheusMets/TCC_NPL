@@ -10,6 +10,8 @@ using Word = Microsoft.Office.Interop.Word;
 using System.Data.SqlClient;
 using System.Globalization;
 using TCC_TutelaProvisoria.Recursos;
+using System.Drawing;
+using Tesseract;
 //using NLP = opennlp.tools;
 
 namespace TCC_TutelaProvisoria
@@ -541,6 +543,29 @@ namespace TCC_TutelaProvisoria
             return QueryResults;
         }
 
+
+        #endregion
+
+
+        #region [Leitura de imagem]
+
+        public static string RetornaTextoDeUmaImagem(string CaminhoDaImagem)
+        {
+            var pix = Pix.LoadFromFile(CaminhoDaImagem);
+            var CaminhoDoTessData = Path.GetFullPath(@"..\..\tessdata");
+
+            try
+            {
+                var OCR = new TesseractEngine(CaminhoDoTessData, "por", EngineMode.Default);
+                var Page = OCR.Process(pix);
+
+                return Page.GetText() + "\n\n" + "\nTaxa de precisao: " + Page.GetMeanConfidence();
+            }
+            catch (Exception e)
+            {
+                return "Erro: nao foi possivel retornar o texto da imagem. Erro encontrado: " + e.Message;
+            }
+        }
 
         #endregion
 

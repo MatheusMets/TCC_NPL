@@ -302,10 +302,10 @@ namespace TCC_TutelaProvisoria
                 }
 
 
-                foreach (Tutela tutela in G_ListaDeTutelas)
-                {
-                    //bacana isso aqui SIUAHISAHISUHAIUSHIAHS   Vo ate deixar aqui só de zoas
-                }
+                //foreach (Tutela tutela in G_ListaDeTutelas)
+                //{
+
+                //}
 
             }
 
@@ -335,6 +335,25 @@ namespace TCC_TutelaProvisoria
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(Directory.GetCurrentDirectory());
+            //MessageBox.Show(Path.GetFullPath(@"..\..\tessdata"));
+
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                Title = "Escolha uma imagem: ",
+                DefaultExt = "png",
+                Filter = "png files(*.png)|*.png|bitmap files(*.bmp)|*.bmp|All files(*.*)|*.*"
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string TextoDaImagem = Util.RetornaTextoDeUmaImagem(openFileDialog1.FileName);
+                MessageBox.Show(TextoDaImagem);
+            }
         }
     }
 }

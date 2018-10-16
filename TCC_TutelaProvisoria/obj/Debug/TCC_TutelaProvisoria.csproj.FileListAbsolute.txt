@@ -74,3 +74,9 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_T
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\liblept172.dll
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\libtesseract304.dll
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x86\liblept172.dll
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x86\libtesseract304.dll
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Tesseract.dll
+C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Tesseract.xml
