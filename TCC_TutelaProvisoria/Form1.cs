@@ -339,9 +339,6 @@ namespace TCC_TutelaProvisoria
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(Directory.GetCurrentDirectory());
-            //MessageBox.Show(Path.GetFullPath(@"..\..\tessdata"));
-
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
                 Title = "Escolha uma imagem: ",
@@ -352,7 +349,7 @@ namespace TCC_TutelaProvisoria
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string TextoDaImagem = Util.RetornaTextoDeUmaImagem(openFileDialog1.FileName);
-                MessageBox.Show(TextoDaImagem);
+                richTextBox1.Clear();           richTextBox1.AppendText(TextoDaImagem);
             }
         }
     }
