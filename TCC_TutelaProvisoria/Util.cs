@@ -12,8 +12,9 @@ using System.Globalization;
 using TCC_TutelaProvisoria.Recursos;
 using System.Drawing;
 using Tesseract;
-using Google.Cloud.Vision.V1;
-using GCV = Google.Cloud.Vision.V1;
+//using Tesseract;
+//using Google.Cloud.Vision.V1;
+//using GCV = Google.Cloud.Vision.V1;
 //using NLP = opennlp.tools;
 
 namespace TCC_TutelaProvisoria
@@ -569,24 +570,24 @@ namespace TCC_TutelaProvisoria
             }
         }
 
-        public static string RetornaTextoDeUmaImagem2(string CaminhoDaImagem)
-        {
-            StringBuilder sb = new StringBuilder();
+        //public static string RetornaTextoDeUmaImagem2(string CaminhoDaImagem)
+        //{
+        //    StringBuilder sb = new StringBuilder();
 
-            var client = GCV.ImageAnnotatorClient.Create();
-            var image = GCV.Image.FromFile(CaminhoDaImagem);
-            var response = client.DetectLabels(image);
+        //    var client = GCV.ImageAnnotatorClient.Create();
+        //    var image = GCV.Image.FromFile(CaminhoDaImagem);
+        //    var response = client.DetectLabels(image);
 
-            //var response = client.DetectFaces(image);
+        //    //var response = client.DetectFaces(image);
 
-            foreach (var annotation in response)
-            {
-                if (annotation.Description != null)
-                    sb.Append(annotation.Description);
-            }
+        //    foreach (var annotation in response)
+        //    {
+        //        if (annotation.Description != null)
+        //            sb.Append(annotation.Description);
+        //    }
 
-            return sb.ToString();
-        }
+        //    return sb.ToString();
+        //}
 
         #endregion
 

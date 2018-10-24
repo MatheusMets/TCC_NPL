@@ -27,16 +27,6 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_T
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\Testes BagOfWords\Test1.docx
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Testes BagOfWords\Test1.docx
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojResolveAssemblyReference.cache
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.Cache
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Testes BagOfWords\Test1.docx
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
@@ -72,7 +62,6 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\openn
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
-C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\liblept172.dll
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\libtesseract304.dll
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x86\liblept172.dll
@@ -127,3 +116,25 @@ C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.dll
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.xml
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.xml
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Properties.Resources.resources
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Recursos.MensagensSistema.resources
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.cache
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CoreCompileInputs.cache
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\liblept172.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x64\libtesseract304.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x86\liblept172.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\x86\libtesseract304.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Tesseract.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.dll
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Tesseract.xml
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.xml
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.xml
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojAssemblyReference.cache
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
+C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
