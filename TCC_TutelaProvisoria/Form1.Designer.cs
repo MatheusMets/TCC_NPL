@@ -52,6 +52,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.Histograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Histograma)).BeginInit();
             this.SuspendLayout();
@@ -259,12 +260,24 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(1057, 64);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(137, 43);
+            this.button8.TabIndex = 17;
+            this.button8.Text = "Busca jurisprudencia";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1349, 607);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.Histograma);
             this.Controls.Add(this.button6);
@@ -316,6 +329,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataVisualization.Charting.Chart Histograma;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using static System.Windows.Forms.CheckedListBox;
 using TCC_TutelaProvisoria.Recursos;
 using System.Windows.Forms.DataVisualization.Charting;
+using TCC_TutelaProvisoria.WebCrawler.Acesso;
 
 namespace TCC_TutelaProvisoria
 {
@@ -351,6 +352,12 @@ namespace TCC_TutelaProvisoria
                 string TextoDaImagem = Util.RetornaTextoDeUmaImagem(openFileDialog1.FileName);
                 richTextBox1.Clear();           richTextBox1.AppendText(TextoDaImagem);
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            TJMG_Acesso TJ = new TJMG_Acesso();
+            TJ.AcessarTJMG();
         }
     }
 }
