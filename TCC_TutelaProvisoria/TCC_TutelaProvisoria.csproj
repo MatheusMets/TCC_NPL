@@ -84,6 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Jurisprudencia.cs" />
+    <Compile Include="Entities\PesquisaJurisprudencia.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +99,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MensagensSistema.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tutela.cs" />
+    <Compile Include="Entities\Tutela.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="WebCrawler\Acesso\TJMG_Acesso.cs" />
     <Compile Include="WebCrawler\Base\DriverFactory.cs" />

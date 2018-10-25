@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TCC_TutelaProvisoria.WebCrawler.PageObject
@@ -14,16 +15,83 @@ namespace TCC_TutelaProvisoria.WebCrawler.PageObject
         {
             PreencheCampo(Pesquisa, By.Id("palavras"));
             ClicaBotao(By.XPath("//*[@id='acordao-form']/div[2]/button"));
+            EsperaPorElementosLocalizadosPor(By.ClassName("caixa_processo"), 15);
+        }
+
+        public void ClicaNaPrimeiraJurisprudencia()
+        {
+            ClicaBotao(By.XPath("//*[@class='caixa_processo'][1]/a"));
+            EsperaPorElementoVisivel(By.Id("textoUmaColuna"));
+        }
+
+        public int ObterQuantJurisprudencias()
+        {
+            EsperaPorElementoVisivel(By.XPath("//*[@id='textoUmaColuna']/table[1]/tbody/tr[1]/td"));
+            var Encontrados = driver.FindElement(By.XPath("//*[@id='textoUmaColuna']/table[1]/tbody/tr[1]/td")).Text;
+
+            int pFrom = Encontrados.IndexOf("de ") + "de ".Length;
+            int pTo = Encontrados.LastIndexOf("encontrados");
+
+            string NumPags = Encontrados.Substring(pFrom, pTo - pFrom);
+
+            return Convert.ToInt32(NumPags);
+        }
+
+        public void IrParaProximaPagina()
+        {
+            ClicaBotao(By.XPath("//tbody//table//td[5]"));
+        }
+
+        public string ObterProcesso()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Processo')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterRelator()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Relator(a)')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterOrgaoJulgador()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Órgão Julgador')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterSumula()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Súmula')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterDataJulgamento()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Data de Julgamento')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterDataPublicacao()
+        {
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Data de Julgamento')]/following-sibling::div[1]")).Text;
+        }
+
+        public string ObterEmenta()
+        {
+            return driver.FindElement(By.XPath("//*[@id='ementa']/cabbcabccbbacadbcaaddaabcbcacbabadcaaddadaaad")).Text;
         }
 
         public string ObterInteiroTeor()
         {
-            return "";
+            if (IsElementPresent(By.Id("imgBotao1")))
+            {
+                ClicaBotao(By.Id("imgBotao1"));
+                Thread.Sleep(2000);
+
+                if (IsElementPresent(By.XPath("//*[@id='panel1']/div[2]")))
+                    return driver.FindElement(By.XPath("//*[@id='panel1']/div[2]")).Text;
+                else
+                    return "empty";
+            }
+            else
+                return "empty";
         }
 
-        public string ObterQuantidadePaginas()
-        {
-            return "";
-        }
     }
 }
