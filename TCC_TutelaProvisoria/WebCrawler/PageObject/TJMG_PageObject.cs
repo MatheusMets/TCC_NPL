@@ -40,6 +40,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.PageObject
         public void IrParaProximaPagina()
         {
             ClicaBotao(By.XPath("//tbody//table//td[5]"));
+            Thread.Sleep(3000);
         }
 
         public string ObterProcesso()

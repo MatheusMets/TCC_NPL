@@ -24,7 +24,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
             try
             {
                 InicializaBrowserAnonimo("http://www.tjmg.jus.br/portal-tjmg/");
-                BuscarJurisprudencia("Alimentos critérios de fixação cônjuge");         pesquisaJurisprudencia.Pesquisa = "Alimentos critérios de fixação cônjuge";
+                BuscarJurisprudencia("conjuge alimentos posse de bens");         pesquisaJurisprudencia.Pesquisa = "conjuge alimentos posse de bens";
                 ClicaNaPrimeiraJurisprudencia();
 
                 QuantJurisprudenciasEncontradas = ObterQuantJurisprudencias();
@@ -36,6 +36,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
                     jurisprudencia.Processo = ObterProcesso();
                     jurisprudencia.Relator = ObterRelator();
                     jurisprudencia.Sumula = ObterSumula();
+                    jurisprudencia.InteiroTeor = ObterOrgaoJulgador();
                     jurisprudencia.DataJulgamento = ObterDataJulgamento();
                     jurisprudencia.DataPublicacao = ObterDataPublicacao();
                     jurisprudencia.Ementa = ObterEmenta();
