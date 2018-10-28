@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TCC_TutelaProvisoria.WebCrawler.PageObject
 {
@@ -70,28 +71,35 @@ namespace TCC_TutelaProvisoria.WebCrawler.PageObject
 
         public string ObterDataPublicacao()
         {
-            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Data de Julgamento')]/following-sibling::div[1]")).Text;
+            return driver.FindElement(By.XPath("//*[@class='cabecalho' and contains(.,'Data da publicação')]/following-sibling::div[1]")).Text;
         }
 
         public string ObterEmenta()
         {
-            return driver.FindElement(By.XPath("//*[@id='ementa']/cabbcabccbbacadbcaaddaabcbcacbabadcaaddadaaad")).Text;
+            return driver.FindElement(By.Id("ementa")).Text;
         }
 
         public string ObterInteiroTeor()
         {
-            if (IsElementPresent(By.Id("imgBotao1")))
+            try
             {
-                ClicaBotao(By.Id("imgBotao1"));
-                Thread.Sleep(2000);
-
-                if (IsElementPresent(By.XPath("//*[@id='panel1']/div[2]")))
+                //if (IsElementPresent(By.XPath("//*[@class='cabecalho' and contains(.,'Inteiro Teor')]")))
+                //{
+                    ClicaBotao(By.Id("imgBotao1"));
+                    //MessageBox.Show("Clicou no botao do Inteiro Teor");
+                    Thread.Sleep(2000);
+                //if (IsElementPresent(By.XPath("//*[@id='panel1']/div[2]")))
                     return driver.FindElement(By.XPath("//*[@id='panel1']/div[2]")).Text;
-                else
-                    return "empty";
+                //else
+                    //return "empty";
+                //}
+                //else
+                    //return "empty";
             }
-            else
+            catch (Exception)
+            {
                 return "empty";
+            }
         }
 
     }

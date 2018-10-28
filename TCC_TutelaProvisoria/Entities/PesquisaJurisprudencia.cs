@@ -13,7 +13,7 @@ namespace TCC_TutelaProvisoria.Entities
 
         public PesquisaJurisprudencia()
         {
-
+            Jurisprudencias = new List<Jurisprudencia>();
         }
 
         public string ShowPesquisa()
@@ -23,10 +23,10 @@ namespace TCC_TutelaProvisoria.Entities
             foreach (Jurisprudencia j in Jurisprudencias)
             {
                 sb.Append(j.ShowJurisprudencia());
-                sb.Append("\n\n");
+                sb.Append("\n\n\n");
             }
             return "Pesquisa realizada: " + Pesquisa + "\n" +
-                   "Foram obtidas " + Jurisprudencias.Count + " jurisprudencias" + "\n\n" +
+                   "Foram obtidas " + Jurisprudencias.Count + " jurisprudencias" + "\n\n\n\n" +
                    sb.ToString();
         }
     }

@@ -14,6 +14,7 @@ using static System.Windows.Forms.CheckedListBox;
 using TCC_TutelaProvisoria.Recursos;
 using System.Windows.Forms.DataVisualization.Charting;
 using TCC_TutelaProvisoria.WebCrawler.Acesso;
+using TCC_TutelaProvisoria.Entities;
 
 namespace TCC_TutelaProvisoria
 {
@@ -27,6 +28,7 @@ namespace TCC_TutelaProvisoria
         string[] CaminhosDosDocumentos;
         List<string> ListaDeDocumentos;
         List<string> BagOfWords;
+        public PesquisaJurisprudencia v_PesquisaJurisprudencia; 
 
 
         Tutela tutela = new Tutela();
@@ -356,8 +358,11 @@ namespace TCC_TutelaProvisoria
 
         private void button8_Click(object sender, EventArgs e)
         {
+            v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
+
             TJMG_Acesso TJ = new TJMG_Acesso();
-            TJ.AcessarTJMG();
+            v_PesquisaJurisprudencia = TJ.AcessarTJMG();
+            richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
         }
     }
 }

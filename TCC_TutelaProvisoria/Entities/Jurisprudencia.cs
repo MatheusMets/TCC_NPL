@@ -21,17 +21,28 @@ namespace TCC_TutelaProvisoria.Entities
         {
 
         }
+        public Jurisprudencia(string Processo, string Relator, string OrgaoJulgador, string Sumula, string DataJulgamento, string DataPublicacao, string Ementa, string InteiroTeor)
+        {
+            this.Processo = Processo;
+            this.Relator = Relator;
+            this.OrgaoJulgador = OrgaoJulgador;
+            this.Sumula = Sumula;
+            this.DataJulgamento = DataJulgamento;
+            this.DataPublicacao = DataPublicacao;
+            this.Ementa = this.Ementa;
+            this.InteiroTeor = InteiroTeor;
+        }
 
         public string ShowJurisprudencia()
         {
-            return "Processo: " + Processo + "\n" +
-                   "Relator: " + Relator + "\n" +
-                   "Orgao Julgador / Câmara: " + OrgaoJulgador + "\n" +
-                   "Sumula: " + Sumula + "\n" +
-                   "Data de julgamento: " + DataJulgamento + "\n" +
-                   "Data de publicacao: " + DataPublicacao + "\n"
-                   //+ "Ementa: " + Ementa + "\n" +
-                   //"Inteiro Teor: " + InteiroTeor
+            return "PROCESSO: " + Processo + "\n" +
+                   "RELATOR: " + Relator + "\n" +
+                   "ORGAO JULGADOR / CAMARA: " + OrgaoJulgador + "\n" +
+                   "SUMULA: " + Sumula + "\n" +
+                   "DATA DE JULGAMENTO: " + DataJulgamento + "\n" +
+                   "DATA DE PUBLICACAO: " + DataPublicacao + "\n\n"
+                   + "EMENTA: " + Ementa + "\n\n" +
+                   "INTEIRO TEOR: " + InteiroTeor
                    ; 
         }
 

@@ -23,8 +23,11 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
 
             try
             {
+                var PesquisaASerFeita = "cônjuge alimentos provisórios";
+
+
                 InicializaBrowserAnonimo("http://www.tjmg.jus.br/portal-tjmg/");
-                BuscarJurisprudencia("conjuge alimentos posse de bens");         pesquisaJurisprudencia.Pesquisa = "conjuge alimentos posse de bens";
+                BuscarJurisprudencia(PesquisaASerFeita);         pesquisaJurisprudencia.Pesquisa = PesquisaASerFeita;
                 ClicaNaPrimeiraJurisprudencia();
 
                 QuantJurisprudenciasEncontradas = ObterQuantJurisprudencias();
@@ -36,7 +39,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
                     jurisprudencia.Processo = ObterProcesso();
                     jurisprudencia.Relator = ObterRelator();
                     jurisprudencia.Sumula = ObterSumula();
-                    jurisprudencia.InteiroTeor = ObterOrgaoJulgador();
+                    jurisprudencia.OrgaoJulgador = ObterOrgaoJulgador();
                     jurisprudencia.DataJulgamento = ObterDataJulgamento();
                     jurisprudencia.DataPublicacao = ObterDataPublicacao();
                     jurisprudencia.Ementa = ObterEmenta();
@@ -57,7 +60,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
             }
             finally
             {
-                MessageBox.Show("Obteve " + QuantJurisprudenciasObtidas + " jurisprudencuas de " + QuantJurisprudenciasEncontradas);
+                //MessageBox.Show("Obteve " + QuantJurisprudenciasObtidas + " jurisprudencias de " + QuantJurisprudenciasEncontradas);
                 FinalizaNavegador();
             }
 
