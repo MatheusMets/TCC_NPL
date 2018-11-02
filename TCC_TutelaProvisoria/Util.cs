@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using TCC_TutelaProvisoria.Recursos;
 using System.Drawing;
+using TCC_TutelaProvisoria.Entities;
 //using Tesseract;
 
 namespace TCC_TutelaProvisoria
@@ -467,85 +468,6 @@ namespace TCC_TutelaProvisoria
         #endregion
 
 
-        #region [MetodosSQL]
-
-        public static void SalvaTutelaNoBanco(Tutela tutela)
-        {
-            RunSQLScript(@"INSERT INTO Tutela
-                              VALUES('" +
-                        tutela.Nome     + "', '" +
-                        tutela.Caminho  + "', '" +
-                        tutela.Texto    + "',  " +
-                        "NULL);"
-                     );
-        }
-
-        public static void SalvaNoBancoTodasAsTutelasLidas(List<Tutela> p_ListaDeTutela)
-        {
-
-            foreach(Tutela tutela in p_ListaDeTutela)
-            {
-                SalvaTutelaNoBanco(tutela);
-            }
-
-        }
-
-        public static void RunSQLScript(string script)
-        {
-            var connection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder(connection);
-
-
-            using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
-            {
-                SqlC.Open();
-
-                using (SqlCommand dbCommand = new SqlCommand(script, SqlC))
-                {
-                    dbCommand.CommandText = script;
-                    dbCommand.ExecuteNonQuery();
-                }
-            }
-
-            Console.WriteLine("Rodou script SQL");
-        }
-
-        public static List<string> RetornaResultadoQueryDeUmaLinha(string ConsultaASerExecutada)
-        {
-            SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
-
-            List<string> QueryResults = new List<string>();
-            int NumberOfColumns;
-
-            using (SqlConnection SqlC = new SqlConnection(SqlSB.ConnectionString))
-            {
-                SqlC.Open();
-
-                using (SqlCommand dbCommand = new SqlCommand(ConsultaASerExecutada, SqlC))
-                {
-                    using (SqlDataReader reader = dbCommand.ExecuteReader())
-                    {
-                        NumberOfColumns = reader.FieldCount;
-
-                        while (reader.Read())
-                        {
-                            for (int i = 0; i < NumberOfColumns; i++)
-                            {
-                                QueryResults.Add(reader.GetString(i));
-                            }
-                        }
-
-                    }
-                }
-            }
-
-            return QueryResults;
-        }
-
-
-        #endregion
-
-
         #region [Leitura de imagem]
 
         //public static string RetornaTextoDeUmaImagem(string CaminhoDaImagem)
@@ -586,7 +508,6 @@ namespace TCC_TutelaProvisoria
         //}
 
         #endregion
-
 
     }
 }

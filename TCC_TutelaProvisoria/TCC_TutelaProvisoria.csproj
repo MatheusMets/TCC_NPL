@@ -81,6 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbConnect\BaseDB.cs" />
+    <Compile Include="DbConnect\JurisprudenciaDB.cs" />
+    <Compile Include="DbConnect\TutelaDB.cs" />
     <Compile Include="Entities\Jurisprudencia.cs" />
     <Compile Include="Entities\PesquisaJurisprudencia.cs" />
     <Compile Include="Form1.cs">

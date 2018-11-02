@@ -4,96 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCC_TutelaProvisoria
+namespace TCC_TutelaProvisoria.Entities
 {
     public class Tutela
     {
-        string nome;
-        string caminho;
-        string texto;
-        bool aprovada;
-        Dictionary<string, int> quantPalavrasDaBOW;
+        public int MyProperty { get; set; }
+
+        public string Nome { get; set; }
+        public string Caminho { get; set; }
+        public string Texto { get; set; }
+        public bool Aprovada { get; set; }
+        public Dictionary<string, int> QuantPalavrasDaBOW { get; set; }
 
         public Tutela(string nome, string caminho, string texto)
         {
-            this.nome = nome;
-            this.caminho = caminho;
-            this.texto = texto;
+            this.Nome = nome;
+            this.Caminho = caminho;
+            this.Texto = texto;
+            QuantPalavrasDaBOW = new Dictionary<string, int>();
         }
 
 
         public Tutela()
         {
-
+            QuantPalavrasDaBOW = new Dictionary<string, int>();
         }
-
-
-        #region [Get Set]
-
-        public string Nome
-        {
-            get
-            {
-                return nome;
-            }
-            set
-            {
-                nome = value;
-            }
-        }
-
-        public string Caminho
-        {
-
-            get
-            {
-                return caminho;
-            }
-            set
-            {
-                caminho = value;
-            }
-
-        }
-        
-        public string Texto
-        {
-            get
-            {
-                return texto;
-            }
-            set
-            {
-                texto = value;
-            }
-        }
-
-        public bool Aprovada
-        {
-            get
-            {
-                return aprovada;
-            }
-            set
-            {
-                aprovada = value;
-            }
-        }
-
-        public Dictionary<string, int> QuantPalavrasDaBOW
-        {
-            get
-            {
-                return quantPalavrasDaBOW;
-            }
-            set
-            {
-                quantPalavrasDaBOW = value;
-            }
-        }
-
-        #endregion
-
 
     }
 }

@@ -15,6 +15,7 @@ using TCC_TutelaProvisoria.Recursos;
 using System.Windows.Forms.DataVisualization.Charting;
 using TCC_TutelaProvisoria.WebCrawler.Acesso;
 using TCC_TutelaProvisoria.Entities;
+using TCC_TutelaProvisoria.DbConnect;
 
 namespace TCC_TutelaProvisoria
 {
@@ -67,7 +68,7 @@ namespace TCC_TutelaProvisoria
                 tutela = new Tutela(Path.GetFileName(CaminhoDoDocumento), CaminhoDoDocumento, TextoTutela);
 
                 G_ListaDeTutelas.Add(tutela);
-                Util.SalvaTutelaNoBanco(tutela);
+                TutelaDB.SalvaTutelaNoBanco(tutela);
                 MessageBox.Show(TextoTutela);
             }
         }
@@ -101,7 +102,7 @@ namespace TCC_TutelaProvisoria
                     G_ListaDeTutelas.Add(tutela);
                 }
 
-                Util.SalvaNoBancoTodasAsTutelasLidas(L_ListaDeTutelas);
+                TutelaDB.SalvaNoBancoTodasAsTutelasLidas(L_ListaDeTutelas);
 
                 //PRINTA TODOS ARQUIVOS ENCONTRADOS DENTRO DA PASTA
                 //foreach (Tutela tutela in ListaDeTutelas)
@@ -362,11 +363,29 @@ namespace TCC_TutelaProvisoria
 
             TJMG_Acesso TJ = new TJMG_Acesso();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG("conjuge alimentos provisorios posse bens");
-            richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
-            
+            richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa() + "\n\n\n ---------------------------------------------------------- \n\n");
+            JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
+
             TJ = new TJMG_Acesso();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG("união parcial bens alimentos provisórios");
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
+            JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var a = BaseDB.RunScriptAndReturnIntValue(@"       DECLARE @IdPesquisa INT
+
+                                                    INSERT INTO [dbo].[Pesquisa]
+                                                               ([Pesquisa])
+                                                         VALUES
+                                                               ('Pesquisa 1')
+
+                                                    SET @IdPesquisa = SCOPE_IDENTITY();
+                                                    SELECT @IdPesquisa
+                                                        ");
+
+            MessageBox.Show("" + a);
         }
     }
 }
