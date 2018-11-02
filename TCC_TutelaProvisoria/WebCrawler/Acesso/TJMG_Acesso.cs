@@ -15,7 +15,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
         PesquisaJurisprudencia pesquisaJurisprudencia;
         Jurisprudencia jurisprudencia;
 
-        public PesquisaJurisprudencia AcessarTJMG()
+        public PesquisaJurisprudencia AcessarTJMG(string PesquisaASerFeita)
         {
             int QuantJurisprudenciasObtidas = 0;
             int QuantJurisprudenciasEncontradas = 0;
@@ -23,9 +23,6 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
 
             try
             {
-                var PesquisaASerFeita = "cônjuge alimentos provisórios";
-
-
                 InicializaBrowserAnonimo("http://www.tjmg.jus.br/portal-tjmg/");
                 BuscarJurisprudencia(PesquisaASerFeita);         pesquisaJurisprudencia.Pesquisa = PesquisaASerFeita;
                 ClicaNaPrimeiraJurisprudencia();
@@ -34,16 +31,17 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
 
                 for(QuantJurisprudenciasObtidas = 0; QuantJurisprudenciasObtidas < QuantJurisprudenciasEncontradas; QuantJurisprudenciasObtidas++)
                 {
-                    jurisprudencia = new Jurisprudencia();
-
-                    jurisprudencia.Processo = ObterProcesso();
-                    jurisprudencia.Relator = ObterRelator();
-                    jurisprudencia.Sumula = ObterSumula();
-                    jurisprudencia.OrgaoJulgador = ObterOrgaoJulgador();
-                    jurisprudencia.DataJulgamento = ObterDataJulgamento();
-                    jurisprudencia.DataPublicacao = ObterDataPublicacao();
-                    jurisprudencia.Ementa = ObterEmenta();
-                    jurisprudencia.InteiroTeor = ObterInteiroTeor();
+                    jurisprudencia = new Jurisprudencia
+                    {
+                        Processo = ObterProcesso(),
+                        Relator = ObterRelator(),
+                        Sumula = ObterSumula(),
+                        OrgaoJulgador = ObterOrgaoJulgador(),
+                        DataJulgamento = ObterDataJulgamento(),
+                        DataPublicacao = ObterDataPublicacao(),
+                        Ementa = ObterEmenta(),
+                        InteiroTeor = ObterInteiroTeor()
+                    };
 
                     pesquisaJurisprudencia.Jurisprudencias.Add(jurisprudencia);
                     IrParaProximaPagina();

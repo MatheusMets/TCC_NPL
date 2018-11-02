@@ -361,7 +361,11 @@ namespace TCC_TutelaProvisoria
             v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
 
             TJMG_Acesso TJ = new TJMG_Acesso();
-            v_PesquisaJurisprudencia = TJ.AcessarTJMG();
+            v_PesquisaJurisprudencia = TJ.AcessarTJMG("conjuge alimentos provisorios posse bens");
+            richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
+            
+            TJ = new TJMG_Acesso();
+            v_PesquisaJurisprudencia = TJ.AcessarTJMG("união parcial bens alimentos provisórios");
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
         }
     }
