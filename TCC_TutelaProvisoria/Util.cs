@@ -11,11 +11,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using TCC_TutelaProvisoria.Recursos;
 using System.Drawing;
-using Tesseract;
 //using Tesseract;
-//using Google.Cloud.Vision.V1;
-//using GCV = Google.Cloud.Vision.V1;
-//using NLP = opennlp.tools;
 
 namespace TCC_TutelaProvisoria
 {
@@ -552,23 +548,23 @@ namespace TCC_TutelaProvisoria
 
         #region [Leitura de imagem]
 
-        public static string RetornaTextoDeUmaImagem(string CaminhoDaImagem)
-        {
-            var pix = Pix.LoadFromFile(CaminhoDaImagem);
-            var CaminhoDoTessData = Path.GetFullPath(@"..\..\tessdata");
+        //public static string RetornaTextoDeUmaImagem(string CaminhoDaImagem)
+        //{
+        //    var pix = Pix.LoadFromFile(CaminhoDaImagem);
+        //    var CaminhoDoTessData = Path.GetFullPath(@"..\..\tessdata");
 
-            try
-            {
-                var OCR = new TesseractEngine(CaminhoDoTessData, "por", EngineMode.Default);
-                var Page = OCR.Process(pix);
+        //    try
+        //    {
+        //        var OCR = new TesseractEngine(CaminhoDoTessData, "por", EngineMode.Default);
+        //        var Page = OCR.Process(pix);
                 
-                return Page.GetText() + "\n\n" + "\nTaxa de precisao: " + Page.GetMeanConfidence();
-            }
-            catch (Exception e)
-            {
-                return "Erro: nao foi possivel retornar o texto da imagem. Erro encontrado: " + e.Message;
-            }
-        }
+        //        return Page.GetText() + "\n\n" + "\nTaxa de precisao: " + Page.GetMeanConfidence();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "Erro: nao foi possivel retornar o texto da imagem. Erro encontrado: " + e.Message;
+        //    }
+        //}
 
         //public static string RetornaTextoDeUmaImagem2(string CaminhoDaImagem)
         //{

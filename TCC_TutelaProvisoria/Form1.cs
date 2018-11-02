@@ -342,18 +342,18 @@ namespace TCC_TutelaProvisoria
 
         private void button7_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
-            {
-                Title = "Escolha uma imagem: ",
-                DefaultExt = "png",
-                Filter = "png files(*.png)|*.png|bitmap files(*.bmp)|*.bmp|All files(*.*)|*.*"
-            };
+            //OpenFileDialog openFileDialog1 = new OpenFileDialog
+            //{
+            //    Title = "Escolha uma imagem: ",
+            //    DefaultExt = "png",
+            //    Filter = "png files(*.png)|*.png|bitmap files(*.bmp)|*.bmp|All files(*.*)|*.*"
+            //};
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string TextoDaImagem = Util.RetornaTextoDeUmaImagem(openFileDialog1.FileName);
-                richTextBox1.Clear();           richTextBox1.AppendText(TextoDaImagem);
-            }
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    string TextoDaImagem = Util.RetornaTextoDeUmaImagem(openFileDialog1.FileName);
+            //    richTextBox1.Clear();           richTextBox1.AppendText(TextoDaImagem);
+            //}
         }
 
         private void button8_Click(object sender, EventArgs e)

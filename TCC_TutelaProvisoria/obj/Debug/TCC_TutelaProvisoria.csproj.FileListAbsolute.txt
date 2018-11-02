@@ -61,17 +61,11 @@ C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\T
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 C:\Users\Douglas Tertuliano\Desktop\TCC\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\x64\liblept172.dll
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\x64\libtesseract304.dll
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\x86\liblept172.dll
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\x86\libtesseract304.dll
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\Tesseract.dll
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\WebDriver.dll
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.dll
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\Tesseract.xml
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\WebDriver.xml
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.xml
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.Form1.resources
