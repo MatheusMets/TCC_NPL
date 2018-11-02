@@ -359,14 +359,14 @@ namespace TCC_TutelaProvisoria
 
         private void button8_Click(object sender, EventArgs e)
         {
-            v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
-
             TJMG_Acesso TJ = new TJMG_Acesso();
+            v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG("conjuge alimentos provisorios posse bens");
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa() + "\n\n\n ---------------------------------------------------------- \n\n");
             JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
 
             TJ = new TJMG_Acesso();
+            v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG("união parcial bens alimentos provisórios");
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
             JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
