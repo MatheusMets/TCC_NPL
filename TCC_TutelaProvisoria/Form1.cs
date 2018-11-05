@@ -361,6 +361,7 @@ namespace TCC_TutelaProvisoria
         {
             //conjuge alimentos provisorios posse bens              4 resultados
             //união parcial bens alimentos provisórios              16 resultados
+            //tutela provisoria alimentos conjuge                   23 resultados
 
             var Pesquisa = textBox1.Text;
             textBox1.Clear();
@@ -397,6 +398,16 @@ namespace TCC_TutelaProvisoria
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void matheusPiresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/MatheusMets");
+        }
+
+        private void douglasTertulianoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://douglasjtds.github.io");
         }
     }
 }

@@ -1,5 +1,3 @@
-
-
 CREATE TABLE [dbo].[Jurisprudencia](
 	[Identificador] [int] IDENTITY(1,1) NOT NULL,
 	[Processo] [varchar](512) NULL,
