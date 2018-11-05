@@ -51,14 +51,14 @@ namespace TCC_TutelaProvisoria.DbConnect
                                                                     ,[Ementa]
                                                                     ,[InteiroTeor])
                                                                 VALUES
-                                                                    ('" + J.Processo + "', '" + 
-                                                                            J.Relator + "', '" + 
-                                                                            J.OrgaoJulgador + "', '" +
-                                                                            J.Sumula + "', '" + 
-                                                                            J.DataJulgamento + "', '" + 
-                                                                            J.DataPublicacao + "', '" +
-                                                                            J.Ementa + "', '" + 
-                                                                            J.InteiroTeor + "');" + 
+                                                                    ('" + J.Processo.Replace("'", "") + "', '" + 
+                                                                            J.Relator.Replace("'", "") + "', '" + 
+                                                                            J.OrgaoJulgador.Replace("'", "") + "', '" +
+                                                                            J.Sumula.Replace("'", "") + "', '" + 
+                                                                            J.DataJulgamento.Replace("'", "") + "', '" + 
+                                                                            J.DataPublicacao.Replace("'", "") + "', '" +
+                                                                            J.Ementa.Replace("'", "") + "', '" + 
+                                                                            J.InteiroTeor.Replace("'", "") + "');" + 
                                                                             " SET @IdJurisprudencia = SCOPE_IDENTITY() " + 
                                                                             " SELECT @IdJurisprudencia ");
         }

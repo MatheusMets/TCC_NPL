@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -53,6 +53,7 @@
             this.Histograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Histograma)).BeginInit();
             this.SuspendLayout();
@@ -133,7 +134,7 @@
             // CriaBOW
             // 
             this.CriaBOW.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriaBOW.Location = new System.Drawing.Point(17, 65);
+            this.CriaBOW.Location = new System.Drawing.Point(12, 66);
             this.CriaBOW.Name = "CriaBOW";
             this.CriaBOW.Size = new System.Drawing.Size(151, 56);
             this.CriaBOW.TabIndex = 4;
@@ -153,7 +154,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(188, 65);
+            this.button1.Location = new System.Drawing.Point(169, 66);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 56);
             this.button1.TabIndex = 6;
@@ -164,7 +165,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(531, 64);
+            this.button2.Location = new System.Drawing.Point(483, 66);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 56);
             this.button2.TabIndex = 7;
@@ -206,7 +207,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(703, 65);
+            this.button4.Location = new System.Drawing.Point(650, 66);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(151, 56);
             this.button4.TabIndex = 12;
@@ -227,7 +228,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(361, 65);
+            this.button6.Location = new System.Drawing.Point(326, 66);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(151, 56);
             this.button6.TabIndex = 14;
@@ -237,10 +238,10 @@
             // 
             // Histograma
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Histograma.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Histograma.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.Histograma.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Histograma.Legends.Add(legend3);
             this.Histograma.Location = new System.Drawing.Point(17, 178);
             this.Histograma.Name = "Histograma";
             this.Histograma.Size = new System.Drawing.Size(1278, 417);
@@ -251,11 +252,10 @@
             // 
             // button7
             // 
-            this.button7.Enabled = false;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(1200, 64);
+            this.button7.Location = new System.Drawing.Point(985, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(137, 43);
+            this.button7.Size = new System.Drawing.Size(125, 41);
             this.button7.TabIndex = 16;
             this.button7.Text = "Carrega imagem para extrair texto";
             this.button7.UseVisualStyleBackColor = true;
@@ -264,13 +264,21 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(1057, 64);
+            this.button8.Location = new System.Drawing.Point(1219, 105);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(137, 43);
+            this.button8.Size = new System.Drawing.Size(108, 43);
             this.button8.TabIndex = 17;
             this.button8.Text = "Busca jurisprudencia";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(942, 79);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(385, 20);
+            this.textBox1.TabIndex = 18;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -278,6 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1349, 607);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.Histograma);
@@ -331,6 +340,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Histograma;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
