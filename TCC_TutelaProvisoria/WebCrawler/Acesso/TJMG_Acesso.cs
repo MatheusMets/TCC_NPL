@@ -23,7 +23,7 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
 
             try
             {
-                InicializaBrowserAnonimoHeadless("http://www.tjmg.jus.br/portal-tjmg/");
+                InicializaBrowserAnonimo("http://www.tjmg.jus.br/portal-tjmg/");
                 BuscarJurisprudencia(PesquisaASerFeita);         pesquisaJurisprudencia.Pesquisa = PesquisaASerFeita;
                 ClicaNaPrimeiraJurisprudencia();
 

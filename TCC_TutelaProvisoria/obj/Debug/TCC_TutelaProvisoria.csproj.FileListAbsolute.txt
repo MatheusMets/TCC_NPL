@@ -76,4 +76,3 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_T
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
-D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojResolveAssemblyReference.cache
