@@ -51,13 +51,13 @@ namespace TCC_TutelaProvisoria.DbConnect
                                                                     ,[Ementa]
                                                                     ,[InteiroTeor])
                                                                 VALUES
-                                                                    ('" + J.Processo + "' , '" + 
-                                                                            J.Relator + "' , '" + 
-                                                                            J.OrgaoJulgador + "' , '" +
-                                                                            J.Sumula + "' , '" + 
-                                                                            J.DataJulgamento + "' , '" + 
-                                                                            J.DataPublicacao + "' , '" +
-                                                                            J.Ementa + "' , '" + 
+                                                                    ('" + J.Processo + "', '" + 
+                                                                            J.Relator + "', '" + 
+                                                                            J.OrgaoJulgador + "', '" +
+                                                                            J.Sumula + "', '" + 
+                                                                            J.DataJulgamento + "', '" + 
+                                                                            J.DataPublicacao + "', '" +
+                                                                            J.Ementa + "', '" + 
                                                                             J.InteiroTeor + "');" + 
                                                                             " SET @IdJurisprudencia = SCOPE_IDENTITY() " + 
                                                                             " SELECT @IdJurisprudencia ");
