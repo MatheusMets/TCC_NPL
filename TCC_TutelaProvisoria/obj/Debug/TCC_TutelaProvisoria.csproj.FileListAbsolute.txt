@@ -16,7 +16,6 @@ C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.GenerateResource.Cache
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
 C:\Users\mathe\Documents\Visual Studio 2015\Projects\TutelaUrgencia_NPL\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
-D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\Testes BagOfWords\Test1.docx
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe.config
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.exe
 D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\TCC_TutelaProvisoria.pdb
@@ -77,3 +76,8 @@ D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_T
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.exe
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.pdb
 D:\MY THINGS\Documentos\GitHub\TCC_NPL_Test\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csprojResolveAssemblyReference.cache
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.dll
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.dll
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.xml
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\bin\Debug\WebDriver.Support.xml
+D:\Users\douglasjtds\Desktop\FACULDADE\8 º Semestre\TCC 2\projetoNLP\TCC_NPL\TCC_TutelaProvisoria\obj\Debug\TCC_TutelaProvisoria.csproj.CopyComplete
