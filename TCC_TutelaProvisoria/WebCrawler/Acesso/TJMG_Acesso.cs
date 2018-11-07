@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,10 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
                     IrParaProximaPagina();
                 }
                 
+                return pesquisaJurisprudencia;
+            }
+            catch (NoAlertPresentException)
+            {
                 return pesquisaJurisprudencia;
             }
             catch (Exception ex)

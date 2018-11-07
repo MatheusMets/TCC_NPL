@@ -318,14 +318,22 @@ namespace Base
 
         protected void FinalizaNavegador()
         {
-            if (isAlertPresent())
+            try
             {
-                driver.SwitchTo().Alert().Accept();
-                driver.Quit();
-            }
 
-            else
-                driver.Quit();
+                //if (isAlertPresent())
+                //{
+                //    driver.SwitchTo().Alert().Accept();
+                //    driver.Quit();
+                //}
+
+                //else
+                    driver.Quit();
+            }
+            catch (NoAlertPresentException)
+            {
+                Console.WriteLine("Caiu na exception de alerta");
+            }
         }
 
         #endregion
