@@ -31,7 +31,6 @@ namespace TCC_TutelaProvisoria
         List<string> BagOfWords;
         public PesquisaJurisprudencia v_PesquisaJurisprudencia; 
 
-
         Tutela tutela = new Tutela();
         List<Tutela> G_ListaDeTutelas = new List<Tutela>();
 
@@ -370,15 +369,12 @@ namespace TCC_TutelaProvisoria
             TJMG_Acesso TJ = new TJMG_Acesso();
             v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG(Pesquisa);
+            v_PesquisaJurisprudencia.PreenchendoListaArtigos();
+
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa() + "\n\n\n ---------------------------------------------------------- \n\n");
             JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
-            MessageBox.Show(MensagensSistema.BuscaJurisprudenciaFinalizada);
 
-            //TJ = new TJMG_Acesso();
-            //v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
-            //v_PesquisaJurisprudencia = TJ.AcessarTJMG(Pesquisa);
-            //richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa());
-            //JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);
+            MessageBox.Show(MensagensSistema.BuscaJurisprudenciaFinalizada);
         }
 
         private void button9_Click(object sender, EventArgs e)

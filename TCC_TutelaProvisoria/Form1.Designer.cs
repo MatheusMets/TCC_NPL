@@ -39,6 +39,9 @@
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pegarCaminhoDaPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matheusPiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.douglasTertulianoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.CriaBOW = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -54,9 +57,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.autoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.matheusPiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.douglasTertulianoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Histograma)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +124,29 @@
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // autoresToolStripMenuItem
+            // 
+            this.autoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matheusPiresToolStripMenuItem,
+            this.douglasTertulianoToolStripMenuItem});
+            this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
+            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.autoresToolStripMenuItem.Text = "Autores";
+            // 
+            // matheusPiresToolStripMenuItem
+            // 
+            this.matheusPiresToolStripMenuItem.Name = "matheusPiresToolStripMenuItem";
+            this.matheusPiresToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.matheusPiresToolStripMenuItem.Text = "Matheus Pires";
+            this.matheusPiresToolStripMenuItem.Click += new System.EventHandler(this.matheusPiresToolStripMenuItem_Click);
+            // 
+            // douglasTertulianoToolStripMenuItem
+            // 
+            this.douglasTertulianoToolStripMenuItem.Name = "douglasTertulianoToolStripMenuItem";
+            this.douglasTertulianoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.douglasTertulianoToolStripMenuItem.Text = "Douglas Tertuliano";
+            this.douglasTertulianoToolStripMenuItem.Click += new System.EventHandler(this.douglasTertulianoToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -284,29 +307,6 @@
             this.textBox1.Size = new System.Drawing.Size(385, 20);
             this.textBox1.TabIndex = 18;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // autoresToolStripMenuItem
-            // 
-            this.autoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.matheusPiresToolStripMenuItem,
-            this.douglasTertulianoToolStripMenuItem});
-            this.autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            this.autoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.autoresToolStripMenuItem.Text = "Autores";
-            // 
-            // matheusPiresToolStripMenuItem
-            // 
-            this.matheusPiresToolStripMenuItem.Name = "matheusPiresToolStripMenuItem";
-            this.matheusPiresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.matheusPiresToolStripMenuItem.Text = "Matheus Pires";
-            this.matheusPiresToolStripMenuItem.Click += new System.EventHandler(this.matheusPiresToolStripMenuItem_Click);
-            // 
-            // douglasTertulianoToolStripMenuItem
-            // 
-            this.douglasTertulianoToolStripMenuItem.Name = "douglasTertulianoToolStripMenuItem";
-            this.douglasTertulianoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.douglasTertulianoToolStripMenuItem.Text = "Douglas Tertuliano";
-            this.douglasTertulianoToolStripMenuItem.Click += new System.EventHandler(this.douglasTertulianoToolStripMenuItem_Click);
             // 
             // Form1
             // 

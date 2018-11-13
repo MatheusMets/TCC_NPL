@@ -16,11 +16,11 @@ namespace TCC_TutelaProvisoria.Entities
         public string DataPublicacao { get; set; }
         public string Ementa { get; set; }
         public string InteiroTeor { get; set; }
-        public List<Artigo> ListaArtigos { get; set; }
+        public List<string> ListaArtigos { get; set; }
 
         public Jurisprudencia()
         {
-            ListaArtigos = new List<Artigo>();
+            ListaArtigos = new List<string>();
         }
 
         public Jurisprudencia(string Processo, string Relator, string OrgaoJulgador, string Sumula, string DataJulgamento, string DataPublicacao, string Ementa, string InteiroTeor)
@@ -33,11 +33,18 @@ namespace TCC_TutelaProvisoria.Entities
             this.DataPublicacao = DataPublicacao;
             this.Ementa = Ementa;
             this.InteiroTeor = InteiroTeor;
-            ListaArtigos = new List<Artigo>();
+            ListaArtigos = new List<string>();
         }
 
         public string ShowJurisprudencia()
         {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var Artigo in ListaArtigos)
+            {
+                sb.Append(Artigo);
+            }
+
             return "PROCESSO: " + Processo + "\n" +
                    "RELATOR: " + Relator + "\n" +
                    "ORGAO JULGADOR / CAMARA: " + OrgaoJulgador + "\n" +
@@ -45,7 +52,8 @@ namespace TCC_TutelaProvisoria.Entities
                    "DATA DE JULGAMENTO: " + DataJulgamento + "\n" +
                    "DATA DE PUBLICACAO: " + DataPublicacao + "\n\n"
                    + "EMENTA: " + Ementa + "\n\n" +
-                   "INTEIRO TEOR: " + InteiroTeor
+                   "INTEIRO TEOR: " + InteiroTeor + "\n" +
+                   "ARTIGOS ENCONTRADOS: " + sb.ToString ()
                    ; 
         }
 

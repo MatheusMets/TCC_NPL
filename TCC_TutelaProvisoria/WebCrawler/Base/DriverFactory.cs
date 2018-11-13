@@ -330,9 +330,9 @@ namespace Base
                 //else
                     driver.Quit();
             }
-            catch (NoAlertPresentException)
+            catch (Exception)
             {
-                Console.WriteLine("Caiu na exception de alerta");
+                Console.WriteLine("Caiu na exception");
             }
         }
 
