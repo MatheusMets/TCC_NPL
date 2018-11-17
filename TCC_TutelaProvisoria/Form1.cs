@@ -364,12 +364,13 @@ namespace TCC_TutelaProvisoria
             //tutela provisoria alimentos conjuge                   23 resultados
 
             var Pesquisa = textBox1.Text;
+            richTextBox1.Clear();
             textBox1.Clear();
 
             TJMG_Acesso TJ = new TJMG_Acesso();
             v_PesquisaJurisprudencia = new PesquisaJurisprudencia();
             v_PesquisaJurisprudencia = TJ.AcessarTJMG(Pesquisa);
-            v_PesquisaJurisprudencia.PreenchendoListaArtigos();
+            v_PesquisaJurisprudencia.PreenchendoListaArtigosPorJurisprudencia();
 
             richTextBox1.AppendText(v_PesquisaJurisprudencia.ShowPesquisa() + "\n\n\n ---------------------------------------------------------- \n\n");
             JurisprudenciaDB.SalvaPesquisaJurisprudenciaNoBanco(v_PesquisaJurisprudencia);

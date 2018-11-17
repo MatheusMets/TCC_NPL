@@ -63,7 +63,6 @@ namespace TCC_TutelaProvisoria.WebCrawler.Acesso
             }
             finally
             {
-                //MessageBox.Show("Obteve " + QuantJurisprudenciasObtidas + " jurisprudencias de " + QuantJurisprudenciasEncontradas);
                 FinalizaNavegador();
             }
 

@@ -13,6 +13,8 @@ namespace TCC_TutelaProvisoria.DbConnect
         public static void SalvaPesquisaJurisprudenciaNoBanco(PesquisaJurisprudencia PJ)
         {
             int IdentificadorJurisprudencia = -1;
+            int IdentificadorArtigo = -1;
+
             int IdentificadorPesquisa = BaseDB.RunScriptAndReturnIntValue(@"    DECLARE @IdPesquisa INT
 
                                                                                 INSERT INTO [dbo].[Pesquisa]
@@ -32,8 +34,33 @@ namespace TCC_TutelaProvisoria.DbConnect
                                                    ,[IdentificadorJurisprudencia])
                                              VALUES
                                                    (" + IdentificadorPesquisa + " , " +
-                                                    IdentificadorJurisprudencia + ")"       
+                                                        IdentificadorJurisprudencia + ")"       
                                    );
+
+                foreach (var artigo in jurisprudencia.ListaArtigos)
+                {
+                    IdentificadorArtigo = BaseDB.RunScriptAndReturnIntValue(@"      DECLARE @IdArtigo INT
+
+                                                                                    INSERT INTO [dbo].[Artigo]
+                                                                                               ([NomeArtigo])
+                                                                                         VALUES
+                                                                                               ('" +  artigo + "') " +
+
+
+                                                                                    "SET @IdArtigo = SCOPE_IDENTITY();" + 
+                                                                                    "Select @IdArtigo ");
+
+                    BaseDB.RunSQLScript(@"  INSERT INTO [dbo].[JurisprudenciaArtigo]
+                                                   ([IdentificadorJurisprudencia]
+                                                   ,[IdentificadorArtigo])
+                                            VALUES
+                                                (" + IdentificadorJurisprudencia + " , " +
+                                                     IdentificadorArtigo + ")"
+                   );
+
+
+                }
+
             }
         }
 

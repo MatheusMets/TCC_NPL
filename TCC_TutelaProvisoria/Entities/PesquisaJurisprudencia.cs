@@ -16,63 +16,11 @@ namespace TCC_TutelaProvisoria.Entities
             Jurisprudencias = new List<Jurisprudencia>();
         }
 
-        public void PreenchendoListaArtigos()
+        public void PreenchendoListaArtigosPorJurisprudencia()
         {
-            bool SaoArtigos = false;
-            int CountArtigos = 0;
-            //    gerais contidas nos artigos 194 e 195.    Desta 
-            foreach (var j in Jurisprudencias)
+            foreach (Jurisprudencia j in Jurisprudencias)
             {
-                StringBuilder sb = new StringBuilder();
-
-                var PalavrasDaJuris = j.InteiroTeor.Split(' ');
-                var PreviousWord = PalavrasDaJuris.ElementAt(0);
-
-                foreach(var CurrentWord in PalavrasDaJuris)
-                {
-                    if (SaoArtigos)
-                    {
-                        if (CurrentWord.EndsWith(".") || CurrentWord.Equals(".") || 
-                            CurrentWord.EndsWith(")") || CurrentWord.Equals(")") ||
-                            CurrentWord.EndsWith(":") || CurrentWord.Equals(":") ||
-                            CurrentWord.EndsWith(@"\") || CurrentWord.Equals(@"\") ||
-                            CurrentWord.EndsWith("\"") || CurrentWord.Equals("\"") ||
-                            CurrentWord.EndsWith("\n") || CurrentWord.EndsWith("\r") ||
-                            CountArtigos > 8)                                               //Precisa de um maximo, de ler 8 palavras após achar um "ARTIGOS"
-                        {
-                            sb.Append(CurrentWord);
-                            SaoArtigos = false;
-                            CountArtigos = 0;
-                            sb.Clear();
-                        }
-                        else
-                        {
-                            sb.Append(CurrentWord);
-                            CountArtigos++;
-                        }
-                    }
-
-                    else
-                    {
-                        if (PreviousWord.Equals("ARTIGOS") && Util.PalavraContemDigito(CurrentWord))  //Se a palavra anterior é "ARTIGOS" e a atual contem numeros
-                        {
-                            SaoArtigos = true;
-
-                            sb.Append(CurrentWord);
-                        }
-
-                        else if (PreviousWord.Contains("ART.") || PreviousWord.Equals("ARTIGO") || (PreviousWord.Equals("ART")))
-                        {
-                            if (Util.PalavraContemDigito(CurrentWord))             //Só adicionará a lista de artigos caso a palavra posterior contenha um numero (Ex: Art. 23)
-                            {
-                                j.ListaArtigos.Add(CurrentWord);
-                            }
-                        }
-                    }
-
-                    PreviousWord = CurrentWord.ToUpper();
-                }
-
+                j.PreenchendoListaArtigos();
             }
         }
 
