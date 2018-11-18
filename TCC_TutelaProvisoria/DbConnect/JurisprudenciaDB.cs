@@ -85,7 +85,8 @@ namespace TCC_TutelaProvisoria.DbConnect
                                                                             J.DataJulgamento.Replace("'", "") + "', '" + 
                                                                             J.DataPublicacao.Replace("'", "") + "', '" +
                                                                             J.Ementa.Replace("'", "") + "', '" + 
-                                                                            J.InteiroTeor.Replace("'", "") + "');" + 
+                                                                            J.InteiroTeor.Replace("'", "") + "', '" + 
+                                                                            J.StatusJurisprudencia + "');" + 
                                                                             " SET @IdJurisprudencia = SCOPE_IDENTITY() " + 
                                                                             " SELECT @IdJurisprudencia ");
         }
