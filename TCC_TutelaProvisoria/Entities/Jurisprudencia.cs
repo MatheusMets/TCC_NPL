@@ -17,6 +17,7 @@ namespace TCC_TutelaProvisoria.Entities
         public string Ementa { get; set; }
         public string InteiroTeor { get; set; }
         public List<string> ListaArtigos { get; set; }
+        public string StatusJurisprudencia { get; set; }
 
         public Jurisprudencia()
         {
@@ -34,6 +35,7 @@ namespace TCC_TutelaProvisoria.Entities
             this.Ementa = Ementa;
             this.InteiroTeor = InteiroTeor;
             ListaArtigos = new List<string>();
+            PreencheStatusJurisprudencia();
         }
 
         public string ShowJurisprudencia()
@@ -92,7 +94,7 @@ namespace TCC_TutelaProvisoria.Entities
 
                 else
                 {
-                    if (PreviousWord.Equals("ARTIGOS") && Util.PalavraContemDigito(CurrentWord))  //Se a palavra anterior é "ARTIGOS" e a atual contem numeros
+                    if (PreviousWord.Contains("ARTIGOS") && Util.PalavraContemDigito(CurrentWord))  //Se a palavra anterior é "ARTIGOS" e a atual contem numeros
                     {
                         SaoArtigos = true;
 
@@ -138,7 +140,7 @@ namespace TCC_TutelaProvisoria.Entities
                 {
                     foreach (char c in this.ListaArtigos.ElementAt(i))
                     {
-                        if (char.IsDigit(c))
+                        if (char.IsDigit(c) || c.Equals('-'))
                         {
                             sb.Append(c);
                         }
@@ -151,6 +153,14 @@ namespace TCC_TutelaProvisoria.Entities
 
             this.ListaArtigos = NewListaArtigos;
 
+        }
+
+        public void PreencheStatusJurisprudencia()
+        {
+            if (!String.IsNullOrEmpty(this.Sumula))
+            {
+                //Se contem conjuntos X de palavras, é deferido. Senão, é indeferido... Parcialmente deferido ou indiferente. 
+            }
         }
 
     }
