@@ -35,7 +35,6 @@ namespace TCC_TutelaProvisoria.Entities
             this.Ementa = Ementa;
             this.InteiroTeor = InteiroTeor;
             ListaArtigos = new List<string>();
-            PreencheStatusJurisprudencia();
         }
 
         public string ShowJurisprudencia()
@@ -159,47 +158,30 @@ namespace TCC_TutelaProvisoria.Entities
         {
             if (!String.IsNullOrEmpty(this.Sumula))
             {
-                //Se contem conjuntos X de palavras, é deferido. Senão, é indeferido... Parcialmente deferido ou indiferente. 
 
-                /*
-                    NEGARAM PROVIMENTO
-                    NEGARAM PROVIMENTO AO RECURSO
-                    NEGARAM PROVIMENTO AO RECURSO
-                    SÚMULA: NEGARAM PROVIMENTO AO RECURSO
-                    DERAM PROVIMENTO AO AGRAVO
-                    DERAM PROVIMENTO
-                    Em reexame necessário, reformo parcialmente a sentença
-                    Dou provimento à primeira apelação, nego provimento à segunda apelação e à apelação adesiva
-                    NEGARAM PROVIMENTO
-                    NEGARAM PROVIMENTO
-                    NEGARAM PROVIMENTO AO RECURSO
-                    Negaram provimento ao recurso e de ofício integraram a decisão
-                    RECURSO NÃO PROVIDO
-                    DERAM PROVIMENTO AO RECURSO, VENCIDO O SEGUNDO VOGAL
-                    DERAM PROVIMENTO, VENCIDO O SEGUNDO VOGAL
-                    SÚMULA: DERAM PROVIMENTO AO RECURSO, VENCIDO PARCIALMENTE O SEGUNDO VOGAL
-                    REJEITARAM AS PRELIMINARES E, NO MÉRITO, NEGARAM PROVIMENTO AO RECURSO
-                    NEGARAM PROVIMENTO AO RECURSO, VENCIDA A DESEMBARGADORA RELATORA
-                    REJEITARAM AS PRELIMINARES, POR MAIORIA, E DERAM PARCIAL PROVIMENTO AO RECURSO, À UNANIMIDADE
-                    NEGARAM PROVIMENTO AO RECURSO
-                    NEGARAM PROVIMENTO
-                    RECURSO NÃO PROVIDO, VENCIDA A RELATORA
-                    DERAM PARCIAL PROVIMENTO AO RECURSO
-                    RECURSO NÃO PROVIDO, VENCIDA A RELATORA" Esteve presente o(a) Dra. Procuradora de Justiça Reyvani Jabour Ribeiro pelo(a) agravado(a)(s)
-                    DERAM PROVIMENTO AO RECURSO
-                    POR MAIORIA, NEGARAM PROVIMENTO AO AGRAVO, VENCIDO O RELATOR
-                    RECURSO PROVIDO EM PARTE. VENCIDA A RELATORA" Esteve presente o(a) Andrea Paulino dos Santos pelo(a) agravante(s)
-                    REFORMARAM A SENTENÇA, NO REEXAME NECESSÁRIO, PREJUDICADOS OS RECURSOS VOLUNTÁRIOS, VENCIDA A DESEMBARGADORA RELATORA
-                    RECURSO NÃO PROVIDO, VENCIDA A RELATORA.."Esteve presente o(a) Matheus Miranda de Oliveira pelo(a) agravante(s)
-                    RECURSO PROVIDO, VENCIDA A RELATORA
-                    DERAM PROVIMENTO PARCIAL, POR MAIORIA
-                    NEGARAM PROVIMENTO, VENCIDA A RELATORA
-                    DERAM PROVIMENTO, VENCIDO O SEGUNDO VOGAL
-                    REJEITARAM PRELIMINARES E DERAM PROVIMENTO AO RECURSO
-             
-                */
+                if (this.Sumula.ToUpper().Contains("NEGARAM PROVIMENTO") ||
+                    this.Sumula.ToUpper().Contains("NEGO PROVIMENTO") ||
+                    this.Sumula.ToUpper().Contains("RECURSO NÃO PROVIDO") ||
+                    this.Sumula.ToUpper().Contains("NEGAR PROVIMENTO"))
 
+                            this.StatusJurisprudencia = "INDEFERIDA";
 
+                else if (this.Sumula.ToUpper().Contains("REFORMO PARCIALMENTE") ||
+                         this.Sumula.ToUpper().Contains("DERAM PROVIMENTO EM PARTE") ||
+                         this.Sumula.ToUpper().Contains("DERAM PARCIAL PROVIMENTO") ||
+                         this.Sumula.ToUpper().Contains("PROVIDO EM PARTE") ||
+                         this.Sumula.ToUpper().Contains("DERAM PROVIMENTO PARCIAL"))
+                         
+                            this.StatusJurisprudencia = "PARCIALMENTE DEFERIDA";
+
+                else if (this.Sumula.ToUpper().Contains("RECURSO PROVIDO") ||
+                         this.Sumula.ToUpper().Contains("DERAM PROVIMENTO"))
+
+                             this.StatusJurisprudencia = "DEFERIDA";
+
+                else 
+
+                    this.StatusJurisprudencia = "SETENÇA REFORMADA";
 
             }
         }

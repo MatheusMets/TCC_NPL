@@ -21,6 +21,7 @@ namespace TCC_TutelaProvisoria.Entities
             foreach (Jurisprudencia j in Jurisprudencias)
             {
                 j.PreenchendoListaArtigos();
+                j.PreencheStatusJurisprudencia();
             }
         }
 

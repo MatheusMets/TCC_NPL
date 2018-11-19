@@ -76,7 +76,8 @@ namespace TCC_TutelaProvisoria.DbConnect
                                                                     ,[DataJulgamento]
                                                                     ,[DataPublicacao]
                                                                     ,[Ementa]
-                                                                    ,[InteiroTeor])
+                                                                    ,[InteiroTeor]
+                                                                    ,[StatusJurisprudencia])
                                                                 VALUES
                                                                     ('" + J.Processo.Replace("'", "") + "', '" + 
                                                                             J.Relator.Replace("'", "") + "', '" + 
